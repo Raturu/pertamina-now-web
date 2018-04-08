@@ -6,8 +6,11 @@ class Collection extends REST_Controller {
   function __construct()
   {
     parent::__construct();
-  	$this->load->model("MDataUser");
+    $this->load->model("MDataUser");
+  	$this->load->model("MAuth");
   }
+
+
 
   public function createUser_post(){
     $data = array(
@@ -54,5 +57,33 @@ class Collection extends REST_Controller {
   public function getAllData_get(){
     $users = $this->MDataUser->getAllData()->result_array();
     $this->response($users, REST_Controller::HTTP_OK);
+  }
+
+
+  public function login_post(){
+    $data = $this->MAuth->cekData($this->post('username'), $this->post('password'));
+    if($data->num_rows() != null){
+      foreach ($data->result() as $value) {
+        $this->response(
+          [
+            'nama' => $value->nama,
+            'ktp' => $value->ktp,
+            'jenis_kelamin' => $value->jenis_kelamin,
+            'tanggal_lahir' => $value->tanggal_lahir,
+            'tempat_lahir' => $value->tempat_lahir,
+            'email' => $value->email,
+            'no_tlp' => $value->no_tlp,
+            'username' => $value->username,
+            'password' => $value->password,
+            'rule' => $value->rule,
+            'API_key' => $value->key_user
+          ],
+          REST_Controller::HTTP_OK
+        );
+      }
+    }else{
+      $this->response(
+        false, REST_Controller::HTTP_OK);
+    }
   }
 }
