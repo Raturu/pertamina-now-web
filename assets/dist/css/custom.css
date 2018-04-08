@@ -1,0 +1,29 @@
+.btn-inactive{
+	opacity: .5;
+}
+.baca-berita p{
+	text-align: justify;
+	line-height: 1.3em;
+	/*text-indent: 50px;*/
+}
+.keterangan-user{
+	text-align: center;
+}
+.preview-berita{
+}
+.img-admin{
+	border: 1px solid #367fa9;
+	padding: 5px;
+}
+.edit-ktna{
+	margin: 3px 10px 3px 0px;
+}
+.thumb{
+	padding: 30px;
+
+}
+.thumb a.thumbnail{
+	height: 200px;
+	overflow: hidden;
+	padding: 0px;
+}
