@@ -24,7 +24,7 @@ date_default_timezone_set('Asia/Jakarta');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/pertamina_now/';
+$config['base_url'] = 'https://pertamina-now.herokuapp.com/';
 
 /*
 |--------------------------------------------------------------------------
