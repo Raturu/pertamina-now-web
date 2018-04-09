@@ -7,6 +7,8 @@ class Collection extends REST_Controller {
       $this->load->model("MDataUser");
       $this->load->model("MAuth");
     }
+
+
     public function createUser_post(){
       $cekUsername = $this->MDataUser->cekUsername($this->post('username'));
       if($cekUsername->num_rows() == null){
@@ -55,13 +57,17 @@ class Collection extends REST_Controller {
             ], REST_Controller::HTTP_OK);
       }
     }
-    public function getAllData_get(){
+
+    public function getAllDataUser_get(){
+      $this->checkExpiredKey();
       $users = $this->MDataUser->getAllData()->result_array();
       $this->response($users, REST_Controller::HTTP_OK);
     }
+
     public function login_post(){
       $data = $this->MAuth->cekData($this->post('username'), $this->post('password'));
       if($data->num_rows() != null){
+        $this->checkExpiredKey($data->key_user);
         foreach ($data->result() as $value) {
           $this->response(
             [
@@ -99,7 +105,9 @@ class Collection extends REST_Controller {
         }
       }
     }
+
     public function checkKTP_post(){
+      $this->checkExpiredKey();
       $data = $this->MDataUser->getKTP($this->post('id'));
       foreach ($data->result() as $value) {
         $ktp = $value->ktp;
@@ -120,7 +128,9 @@ class Collection extends REST_Controller {
             REST_Controller::HTTP_OK);
       }
     }
+
     public function inputKTP_post(){
+      $this->checkExpiredKey();
       $data = $this->MDataUser->inputKTP($this->post('id'),$this->post('ktp'));
       if(is_array($data) == false){
         $this->response(
@@ -137,5 +147,36 @@ class Collection extends REST_Controller {
             ],
             REST_Controller::HTTP_OK);
       }
+    }
+
+    private function checkExpiredKey($key = null){
+      if($key == null){
+        $data = getallheaders();
+        $data = $this->MDataUser->getUserKey($data['x-api-key']);
+      }else{
+        $data = $this->MDataUser->getUserKey($key);
+      }
+      foreach ($data->result() as $value) {
+        $expired = $value->expired;
+      }
+      if(strtotime($expired) < strtotime(date("Y-m-d h:i:s"))){
+        $this->response(
+            [
+              "status" => false,
+              "error" => "Key expired"
+            ],
+            REST_Controller::HTTP_OK);
+      }
+    }
+
+    public function renewKey_post(){
+      $data = getallheaders();
+      $this->MDataUser->renewKey($data['x-api-key']);
+      $this->response(
+            [
+              "status" => true,
+              "message" => "Success renewals"
+            ],
+            REST_Controller::HTTP_OK);
     }
 }

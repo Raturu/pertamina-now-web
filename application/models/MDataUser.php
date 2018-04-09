@@ -6,25 +6,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function create_data($data){
 			if($this->db->insert('user',$data)){
 				$id_user = $this->db->insert_id();
-				$this->createAPIkey($id_user);
+				$this->createAPIkey($id_user, $data['username']);
 				return $id_user;	
 			}else{
 				return $this->db->error();
 			}
 		}
 
-		public function createAPIkey($id){
+		public function createAPIkey($id, $username){
 			$key = $this->generateRandomString();
 			$data = array(
 				'id_user' => $id,
-				'key_user' => $key,
+				'key_user' => base64_encode($username."*".$key),
 				'level' => 0,
 				'ignore_limits' => 0,
 				'is_private_key' => 0,
 				'ip_addresses' => NULL,
-				'date_created' => date("Y-m-d h:i:s")
+				'date_created' => date("Y-m-d h:i:s"),
+				'expired' => date("Y-m-d h:i:s", strtotime('+3 hours'))
 			);
 			$this->db->insert('user_key',$data);
+		}
+
+		public function getUserKey($key){
+			return $this->db->query("SELECT * FROM user_key where key_user = '$key'");
+		}
+
+		public function renewKey($key){
+			$this->db->query("UPDATE user_key set expired = DATE_ADD(NOW(), INTERVAL 3 HOUR) where key_user = '$key' ");
 		}
 
 		public function getAPIKeyById($id){
