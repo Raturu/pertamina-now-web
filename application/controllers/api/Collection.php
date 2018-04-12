@@ -58,6 +58,18 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function updatePassword_post(){
+      $this->checkExpiredKey();
+      $id_user = $this->getIdFromKey();
+      $this->MDataUser->editPassword($id_user,$this->post('password'));
+      $this->response(
+            [
+              "status" => true,
+              "message" => "Success update password"
+            ],
+            REST_Controller::HTTP_OK);
+    }
+
     public function getAllDataUser_get(){
       $this->checkExpiredKey();
       $users = $this->MDataUser->getAllData()->result_array();

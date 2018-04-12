@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function editPassword($id,$password){
-			$sql = "UPDATE user set password = ?, date_update_verifikasi = NULL WHERE id = ?";
+			$sql = "UPDATE user set password = ? WHERE id = ?";
 			$this->db->query($sql, array(md5("$password"),$id));
 		}
 
