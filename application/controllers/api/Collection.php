@@ -60,14 +60,76 @@ class Collection extends REST_Controller {
 
     public function updatePassword_post(){
       $this->checkExpiredKey();
-      $id_user = $this->getIdFromKey();
-      $this->MDataUser->editPassword($id_user,$this->post('password'));
-      $this->response(
+      if($this->post('password') != ''){
+        $id_user = $this->getIdFromKey();
+        $this->MDataUser->editPassword($id_user,$this->post('password'));
+        $this->response(
+              [
+                "status" => true,
+                "message" => "Success update password"
+              ],
+              REST_Controller::HTTP_OK);
+      }else{
+        $this->response(
             [
-              "status" => true,
-              "message" => "Success update password"
+              "status" => false,
+              "error" => "POST password not found"
             ],
             REST_Controller::HTTP_OK);
+      }
+    }
+
+    public function updateProfil_post(){
+      $this->checkExpiredKey();
+      $id_user = $this->getIdFromKey();
+      $data = $this->MDataUser->getDataById($id_user);
+      foreach ($data->result() as $value) {
+        $usernameAwal = $value->username;
+      }
+      if($usernameAwal == $this->post('username')){
+        $data = array(
+            'nama' => $this->post('nama'),
+            'jenis_kelamin' => $this->post('jenis_kelamin'),
+            'tanggal_lahir' => $this->post('tanggal_lahir'),
+            'tempat_lahir' => $this->post('tempat_lahir'),
+            'email' => $this->post('email'),
+            'no_tlp' => $this->post('no_tlp'),
+            'username' => $this->post('username')
+          );
+        $this->MDataUser->updateProfil($id_user,$data);
+        $this->response(
+              [
+                "status" => true,
+                "message" => "Success update profile"
+              ],
+              REST_Controller::HTTP_OK);
+      }else{
+        if($this->MDataUser->cekUsername($this->post('username'))->num_rows() == null){
+          $data = array(
+              'nama' => $this->post('nama'),
+              'jenis_kelamin' => $this->post('jenis_kelamin'),
+              'tanggal_lahir' => $this->post('tanggal_lahir'),
+              'tempat_lahir' => $this->post('tempat_lahir'),
+              'email' => $this->post('email'),
+              'no_tlp' => $this->post('no_tlp'),
+              'username' => $this->post('username')
+            );
+          $this->MDataUser->updateProfil($id_user,$data);
+          $this->response(
+                [
+                  "status" => true,
+                  "message" => "Success update profile"
+                ],
+                REST_Controller::HTTP_OK);
+        }else{
+          $this->response(
+              [
+                "status" => false,
+                "error" => "Username already exists"
+              ],
+              REST_Controller::HTTP_OK);
+        }
+      }
     }
 
     public function getAllDataUser_get(){

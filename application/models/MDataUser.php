@@ -13,6 +13,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		public function updateProfil($id_user,$data){
+			$this->db->where('id',$id_user);
+			$this->db->update('user',$data);
+		}
+
 		public function createAPIkey($id, $username){
 			$key = $this->generateRandomString();
 			$data = array(
