@@ -67,8 +67,8 @@ class Collection extends REST_Controller {
     public function login_post(){
       $data = $this->MAuth->cekData($this->post('username'), $this->post('password'));
       if($data->num_rows() != null){
-        $this->checkExpiredKey($data->key_user);
         foreach ($data->result() as $value) {
+          $this->checkExpiredKey($value->key_user);
           $this->response(
             [
               'nama' => $value->nama,
@@ -106,9 +106,10 @@ class Collection extends REST_Controller {
       }
     }
 
-    public function checkKTP_post(){
+    public function checkKTP_get(){
       $this->checkExpiredKey();
-      $data = $this->MDataUser->getKTP($this->post('id'));
+      $id_user = $this->getIdFromKey();
+      $data = $this->MDataUser->getDataById($id_user);
       foreach ($data->result() as $value) {
         $ktp = $value->ktp;
       }
@@ -131,7 +132,8 @@ class Collection extends REST_Controller {
 
     public function inputKTP_post(){
       $this->checkExpiredKey();
-      $data = $this->MDataUser->inputKTP($this->post('id'),$this->post('ktp'));
+      $id_user = $this->getIdFromKey();
+      $data = $this->MDataUser->inputKTP($id_user,$this->post('ktp'));
       if(is_array($data) == false){
         $this->response(
             [
@@ -147,6 +149,13 @@ class Collection extends REST_Controller {
             ],
             REST_Controller::HTTP_OK);
       }
+    }
+
+    private function getIdFromKey(){
+      $data = getallheaders();
+      $key = base64_decode($data['x-api-key']);
+      $temp = explode("*", $key);
+      return $temp[0];
     }
 
     private function checkExpiredKey($key = null){

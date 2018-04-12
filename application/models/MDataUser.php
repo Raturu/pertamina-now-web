@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$key = $this->generateRandomString();
 			$data = array(
 				'id_user' => $id,
-				'key_user' => base64_encode($username."*".$key),
+				'key_user' => base64_encode($id."*".$username."*".$key),
 				'level' => 0,
 				'ignore_limits' => 0,
 				'is_private_key' => 0,
@@ -75,6 +75,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function cekUsername($username){
 			$sql = "SELECT * FROM user where username = ?";
 			return $this->db->query($sql, array($username));
+		}
+
+		public function inputKTP($id_user,$ktp){
+			$this->db->query("UPDATE user set ktp='$ktp' where id='$id_user'");
 		}
 
 	}
