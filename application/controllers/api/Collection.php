@@ -183,23 +183,29 @@ class Collection extends REST_Controller {
     }
 
     public function sendPhoneNumber_post(){
-      $no_tlp = str_replace("*", "", $this->post('no_tlp'));
-      $dataUser = $this->MDataUser->getUserByPhone($no_tlp);
+      $no_tlp = str_replace("+", "", $this->post('no_tlp'));
+      $dataUser = $this->MDataUser->getUserByPhone($this->post('no_tlp'));
       if($dataUser->num_rows() != null){
         foreach ($dataUser->result() as $value) {
           $id_user = $value->id;
         }
         $key = $this->MDataUser->getAPIKeyById($id_user);
         $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
-        $data = json_decode ($response);
-
-        $this->response(
+        if($response['status'] == 0){
+          $this->response(
             [
               "status" => true,
               "key" => $key,
-              'request_id1' => $data->request_id
+              'request_id' => $response['request_id']
             ],
             REST_Controller::HTTP_OK);
+        }else{
+          $this->response(
+            [
+              "status" => false,
+              'error' => $response['error_text']
+            ], REST_Controller::HTTP_OK);
+        }
       }else{
         $data = array(
             'nama' => null,
@@ -215,16 +221,22 @@ class Collection extends REST_Controller {
         $id_user = $this->MDataUser->create_data($data);
         if(is_array($id_user) == false){
           $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
-          $response1 = json_decode($response);
-
           $key_user = $this->MDataUser->getAPIKeyById($id_user);
-          $this->response(
+          if($response['status'] == 0){
+            $this->response(
             [
               "status" => true,
               "key" => $key_user,
-              'request_id' => $response
+              'request_id' => $response['request_id']
             ],
             REST_Controller::HTTP_OK);
+          }else{
+            $this->response(
+              [
+                "status" => false,
+                'error' => $response['error_text']
+              ], REST_Controller::HTTP_OK);
+          }
         }else{
           $this->response(
             [
@@ -237,9 +249,8 @@ class Collection extends REST_Controller {
     }
 
     public function verifySmsCode_post(){
-      $response = $this->nexmo->verify_check($this->post('request_id'), $this->post('code'), null);
-      $data = json_decode($response);
-      if($data->{'status'} == 0){
+      $response = $this->nexmo->verify_check($this->post('request_id'), $this->post('code'));
+      if($response['status'] == 0){
         $this->checkExpiredKey();
         $id_user = $this->getIdFromKey();
         $dataUser = $this->MDataUser->getDataById($id_user);
@@ -264,7 +275,7 @@ class Collection extends REST_Controller {
         $this->response(
             [
               "status" => false,
-              'error' => "incorrect code"
+              'error' => $response['status']." ".$response['error_text']
             ], REST_Controller::HTTP_OK);
       }
     }
@@ -336,7 +347,7 @@ class Collection extends REST_Controller {
         $this->response(
             [
               "status" => false,
-              "error" => $key1
+              "error" => "Key expired"
             ],
             REST_Controller::HTTP_OK);
       }
