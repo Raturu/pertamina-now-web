@@ -13,6 +13,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		public function getUserByPhone($no_tlp){
+			$this->db->where('no_tlp', $no_tlp);
+			return $this->db->get('user');
+		}
+
 		public function updateProfil($id_user,$data){
 			$this->db->where('id',$id_user);
 			$this->db->update('user',$data);

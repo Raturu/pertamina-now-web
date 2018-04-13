@@ -6,6 +6,7 @@ class Collection extends REST_Controller {
       parent::__construct();
       $this->load->model("MDataUser");
       $this->load->model("MAuth");
+      $this->load->library('nexmo');
     }
 
 
@@ -177,6 +178,60 @@ class Collection extends REST_Controller {
             ],
             REST_Controller::HTTP_OK);
         }
+      }
+    }
+
+    public function sendPhoneNumber_post(){
+      $no_tlp = str_replace("*", "", $this->post('no_tlp'));
+      $dataUser = $this->MDataUser->getUserByPhone($no_tlp);
+      if($dataUser->num_rows() != null){
+        foreach ($dataUser->result as $value) {
+          $id_user = $value->id;
+        }
+        $key = $this->MDataUser->getAPIKeyById();
+        $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now", null, null, null, null, 300);
+        $data = json_decode($response);
+
+        $this->response(
+            [
+              "status" => true,
+              "key" => $key,
+              'request_id' => $data->{'request_id'}
+            ],
+            REST_Controller::HTTP_OK);
+      }else{
+        $data = array(
+            'nama' => null,
+            'jenis_kelamin' => null,
+            'tanggal_lahir' => null,
+            'tempat_lahir' => null,
+            'email' => null,
+            'no_tlp' => $this->post('no_tlp'),
+            'username' => null,
+            'password' => null,
+            'rule' => 0
+          );
+        $id_user = $this->MDataUser->create_data($data);
+        if(is_array($id_user) == false){
+          $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now", null, null, null, null, 300);
+          $data = json_decode($response);
+
+          $key_user = $this->MDataUser->getAPIKeyById($id_user);
+          $this->response(
+            [
+              "status" => true,
+              "key" => $key,
+              'request_id' => $data->{'request_id'}
+            ],
+            REST_Controller::HTTP_OK);
+        }else{
+          $this->response(
+            [
+              "status" => false,
+              'error' => $id_user['message']
+            ], REST_Controller::HTTP_OK);
+        }
+
       }
     }
 
