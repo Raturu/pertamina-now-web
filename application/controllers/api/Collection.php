@@ -7,6 +7,7 @@ class Collection extends REST_Controller {
       $this->load->model("MDataUser");
       $this->load->model("MAuth");
       $this->load->library('nexmo');
+      $this->nexmo->set_format('json');
     }
 
 
@@ -185,18 +186,18 @@ class Collection extends REST_Controller {
       $no_tlp = str_replace("*", "", $this->post('no_tlp'));
       $dataUser = $this->MDataUser->getUserByPhone($no_tlp);
       if($dataUser->num_rows() != null){
-        foreach ($dataUser->result as $value) {
+        foreach ($dataUser->result() as $value) {
           $id_user = $value->id;
         }
-        $key = $this->MDataUser->getAPIKeyById();
-        $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now", null, null, null, null, 300);
-        $data = json_decode($response);
+        $key = $this->MDataUser->getAPIKeyById($id_user);
+        $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
+        $data = json_decode ($response);
 
         $this->response(
             [
               "status" => true,
               "key" => $key,
-              'request_id' => $data->{'request_id'}
+              'request_id1' => $data->request_id
             ],
             REST_Controller::HTTP_OK);
       }else{
@@ -213,15 +214,15 @@ class Collection extends REST_Controller {
           );
         $id_user = $this->MDataUser->create_data($data);
         if(is_array($id_user) == false){
-          $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now", null, null, null, null, 300);
-          $data = json_decode($response);
+          $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
+          $response1 = json_decode($response);
 
           $key_user = $this->MDataUser->getAPIKeyById($id_user);
           $this->response(
             [
               "status" => true,
-              "key" => $key,
-              'request_id' => $data->{'request_id'}
+              "key" => $key_user,
+              'request_id' => $response
             ],
             REST_Controller::HTTP_OK);
         }else{
@@ -232,6 +233,39 @@ class Collection extends REST_Controller {
             ], REST_Controller::HTTP_OK);
         }
 
+      }
+    }
+
+    public function verifySmsCode_post(){
+      $response = $this->nexmo->verify_check($this->post('request_id'), $this->post('code'), null);
+      $data = json_decode($response);
+      if($data->{'status'} == 0){
+        $this->checkExpiredKey();
+        $id_user = $this->getIdFromKey();
+        $dataUser = $this->MDataUser->getDataById($id_user);
+        $key_user = $this->MDataUser->getAPIKeyById($id_user);
+        foreach ($dataUser->result() as $value) {
+          $this->response(
+              [
+                'nama' => $value->nama,
+                'ktp' => $value->ktp,
+                'jenis_kelamin' => $value->jenis_kelamin,
+                'tanggal_lahir' => $value->tanggal_lahir,
+                'tempat_lahir' => $value->tempat_lahir,
+                'email' => $value->email,
+                'no_tlp' => $value->no_tlp,
+                'saldo' => $value->saldo,
+                'API_key' => $key_user
+              ],
+              REST_Controller::HTTP_OK
+            );
+        }
+      }else{
+        $this->response(
+            [
+              "status" => false,
+              'error' => "incorrect code"
+            ], REST_Controller::HTTP_OK);
       }
     }
 
@@ -296,12 +330,13 @@ class Collection extends REST_Controller {
       }
       foreach ($data->result() as $value) {
         $expired = $value->expired;
+        $key1 = $value->key_user;
       }
       if(strtotime($expired) < strtotime(date("Y-m-d h:i:s"))){
         $this->response(
             [
               "status" => false,
-              "error" => "Key expired"
+              "error" => $key1
             ],
             REST_Controller::HTTP_OK);
       }

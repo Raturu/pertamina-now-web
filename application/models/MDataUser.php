@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function create_data($data){
 			if($this->db->insert('user',$data)){
 				$id_user = $this->db->insert_id();
-				$this->createAPIkey($id_user, $data['username']);
+				$this->createAPIkey($id_user);
 				return $id_user;	
 			}else{
 				return $this->db->error();
@@ -23,11 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->update('user',$data);
 		}
 
-		public function createAPIkey($id, $username){
+		public function createAPIkey($id){
 			$key = $this->generateRandomString();
 			$data = array(
 				'id_user' => $id,
-				'key_user' => base64_encode($id."*".$username."*".$key),
+				'key_user' => base64_encode($id."*".$key),
 				'level' => 0,
 				'ignore_limits' => 0,
 				'is_private_key' => 0,
