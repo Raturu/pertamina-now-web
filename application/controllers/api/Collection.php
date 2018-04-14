@@ -277,7 +277,7 @@ class Collection extends REST_Controller {
         $this->response(
             [
               "status" => false,
-              'error' => $response['status']." ".$response['error_text']
+              'error' => $response['error_text']
             ], REST_Controller::HTTP_BAD_REQUEST);
       }
     }
