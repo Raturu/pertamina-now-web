@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'is_private_key' => 0,
 				'ip_addresses' => NULL,
 				'date_created' => date("Y-m-d h:i:s"),
-				'expired' => date("Y-m-d h:i:s", strtotime('+3 hours'))
+				'expired' => date("Y-m-d h:i:s", strtotime('+1 day'))
 			);
 			$this->db->insert('user_key',$data);
 		}
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function renewKey($key){
-			$this->db->query("UPDATE user_key set expired = DATE_ADD(NOW(), INTERVAL 3 HOUR) where key_user = '$key' ");
+			$this->db->query("UPDATE user_key set expired = DATE_ADD(NOW(), INTERVAL 1 DAY) where key_user = '$key' ");
 		}
 
 		public function getAPIKeyById($id){

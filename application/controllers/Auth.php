@@ -8,6 +8,9 @@ class Auth extends CI_Controller {
   function dateSerialToDateTime($date) {
       return ((($date > 25568) ? $date : 25569) * 86400) - ((70 * 365 + 19) * 86400);
   }
+  function phpinfo(){
+    phpinfo();
+  }
   public function index($username = null) {
     /*$date = $this->dateSerialToDateTime(43046);
     echo $date."<br>";

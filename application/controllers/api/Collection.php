@@ -40,6 +40,7 @@ class Collection extends REST_Controller {
               'no_tlp' => $this->post('no_tlp'),
               'username' => $this->post('username'),
               'rule' => $this->post('rule'),
+              'poin' => 0,
               'API_key' => $key_user
             ],
             REST_Controller::HTTP_OK
@@ -266,6 +267,7 @@ class Collection extends REST_Controller {
                 'email' => $value->email,
                 'no_tlp' => $value->no_tlp,
                 'saldo' => $value->saldo,
+                'poin' => $value->poin,
                 'API_key' => $key_user
               ],
               REST_Controller::HTTP_OK
