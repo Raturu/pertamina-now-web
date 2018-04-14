@@ -50,14 +50,14 @@ class Collection extends REST_Controller {
             [
               "status" => false,
               'error' => $id_user['message']
-            ], REST_Controller::HTTP_OK);
+            ], REST_Controller::HTTP_BAD_REQUEST);
         }
       }else{
         $this->response(
             [
               "status" => false,
               'error' => "Username already exists"
-            ], REST_Controller::HTTP_OK);
+            ], REST_Controller::HTTP_BAD_REQUEST);
       }
     }
 
@@ -78,7 +78,7 @@ class Collection extends REST_Controller {
               "status" => false,
               "error" => "POST password not found"
             ],
-            REST_Controller::HTTP_OK);
+            REST_Controller::HTTP_NOT_FOUND);
       }
     }
 
@@ -130,7 +130,7 @@ class Collection extends REST_Controller {
                 "status" => false,
                 "error" => "Username already exists"
               ],
-              REST_Controller::HTTP_OK);
+              REST_Controller::HTTP_BAD_REQUEST);
         }
       }
     }
@@ -171,14 +171,14 @@ class Collection extends REST_Controller {
               "status" => false,
               "error" => "Username not found"
             ],
-            REST_Controller::HTTP_OK);
+            REST_Controller::HTTP_NOT_FOUND);
         }else{
           $this->response(
             [
               "status" => false,
               "error" => "Username and password do not match"
             ],
-            REST_Controller::HTTP_OK);
+            REST_Controller::HTTP_BAD_REQUEST);
         }
       }
     }
@@ -205,7 +205,7 @@ class Collection extends REST_Controller {
             [
               "status" => false,
               'error' => $response['error_text']
-            ], REST_Controller::HTTP_OK);
+            ], REST_Controller::HTTP_BAD_REQUEST);
         }
       }else{
         $data = array(
@@ -236,14 +236,14 @@ class Collection extends REST_Controller {
               [
                 "status" => false,
                 'error' => $response['error_text']
-              ], REST_Controller::HTTP_OK);
+              ], REST_Controller::HTTP_BAD_REQUEST);
           }
         }else{
           $this->response(
             [
               "status" => false,
               'error' => $id_user['message']
-            ], REST_Controller::HTTP_OK);
+            ], REST_Controller::HTTP_BAD_REQUEST);
         }
 
       }
@@ -278,7 +278,7 @@ class Collection extends REST_Controller {
             [
               "status" => false,
               'error' => $response['status']." ".$response['error_text']
-            ], REST_Controller::HTTP_OK);
+            ], REST_Controller::HTTP_BAD_REQUEST);
       }
     }
 
@@ -295,7 +295,7 @@ class Collection extends REST_Controller {
               "status" => false,
               "error" => "KTP SN null"
             ],
-            REST_Controller::HTTP_OK);
+            REST_Controller::HTTP_NOT_FOUND);
       }else{
         $this->response(
             [
@@ -323,7 +323,7 @@ class Collection extends REST_Controller {
               "status" => false,
               "error" => $data['message']
             ],
-            REST_Controller::HTTP_OK);
+            REST_Controller::HTTP_BAD_REQUEST);
       }
     }
 
@@ -351,7 +351,7 @@ class Collection extends REST_Controller {
               "status" => false,
               "error" => "Key expired"
             ],
-            REST_Controller::HTTP_OK);
+            REST_Controller::HTTP_FORBIDDEN);
       }
     }
 
