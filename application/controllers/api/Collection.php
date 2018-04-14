@@ -329,6 +329,7 @@ class Collection extends REST_Controller {
     }
 
     public function promoSPBU_get(){
+      $this->checkExpiredKey();
       $data = $this->MSpbu->getAllPromoAktif();
       if($data->num_rows() != null){
         $result = array();
