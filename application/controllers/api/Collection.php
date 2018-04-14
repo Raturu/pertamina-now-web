@@ -363,6 +363,50 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function transaksi_get(){
+      $this->checkExpiredKey();
+      $id_user = $this->getIdFromKey();
+      $dataTransaksi = $this->MSpbu->getTransaksiByIdUser($id_user);
+      if($dataTransaksi->num_rows() != null){
+        $result = array();
+        foreach ($dataTransaksi->result() as $value) {
+          if($value->id_promo != null){
+            $dataPromo = $this->MSpbu->getPromoTransaksi($value->id_promo);
+            foreach ($dataPromo->result() as $key) {
+              $poin = $key->poin;
+            }
+          }else{
+            $poin = 0;
+          }
+          $temp = array(
+            'jenis_bbm' => $value->jenis,
+            'waktu_transaksi' => $value->waktu_transaksi,
+            'total_pembelian' => $value->total_pembelian,
+            'harga' => $value->harga,
+            'total_pembayaran' => $value->total_pembayaran,
+            'nama_spbu' => $value->nama,
+            'alamat_spbu' => $value->alamat,
+            'kota_spbu' => $value->kota,
+            'provinsi_spbu' => $value->provinsi,
+            'latitude' => $value->latitude,
+            'longitude' => $value->longitude,
+            'poin' => $poin
+          );
+          
+          array_push($result, $temp);
+          unset($temp);
+        }
+        $this->response($result, REST_Controller::HTTP_OK);
+      }else{
+        $this->response(
+            [
+              "status" => false,
+              "error" => "No transaction"
+            ],
+            REST_Controller::HTTP_NOT_FOUND);
+      }
+    }
+
     private function getIdFromKey(){
       $data = getallheaders();
       $key = base64_decode($data['x-api-key']);
