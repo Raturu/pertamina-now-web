@@ -6,6 +6,7 @@ class Collection extends REST_Controller {
       parent::__construct();
       $this->load->model("MDataUser");
       $this->load->model("MAuth");
+      $this->load->model("MSpbu");
       $this->load->library('nexmo');
       $this->nexmo->set_format('json');
     }
@@ -324,6 +325,40 @@ class Collection extends REST_Controller {
               "error" => $data['message']
             ],
             REST_Controller::HTTP_BAD_REQUEST);
+      }
+    }
+
+    public function promoSPBU_get(){
+      $data = $this->MSpbu->getAllPromoAktif();
+      if($data->num_rows() != null){
+        $result = array();
+        foreach ($data->result() as $value) {
+          $temp = array(
+            'id_spbu' => $value->id_spbu,
+            'no_spbu' => $value->no_spbu,
+            'nama_spbu' => $value->nama,
+            'alamat_spbu' => $value->alamat,
+            'kota_spbu' => $value->kota,
+            'provinsi_spbu' => $value->provinsi,
+            'latitude' => $value->latitude,
+            'longitude' => $value->longitude,
+            'poin' => $value->poin,
+            'jumlah_prmo' => $value->jumlah_promo,
+            'used' => $value->used,
+            'waktu_mulai' => $value->waktu_mulai,
+            'waktu_selesai' => $value->waktu_selesai
+          );
+          array_push($result, $temp);
+          unset($temp);
+        }
+        $this->response($result, REST_Controller::HTTP_OK);
+      }else{
+        $this->response(
+            [
+              "status" => false,
+              "error" => "No promo"
+            ],
+            REST_Controller::HTTP_NOT_FOUND);
       }
     }
 
