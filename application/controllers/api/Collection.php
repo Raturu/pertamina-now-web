@@ -328,9 +328,37 @@ class Collection extends REST_Controller {
       }
     }
 
-    public function promoSPBU_get(){
+    public function kategoriPromo_get(){
       $this->checkExpiredKey();
-      $data = $this->MSpbu->getAllPromoAktif();
+      $data = $this->MSpbu->getKategori();
+      if ($data->num_rows() != null) {
+        $result = array();
+        foreach ($data->result() as $value) {
+          $temp = array(
+            'id' => $value->id,
+            'nama' => $value->nama
+          );
+          array_push($result, $temp);
+          unset($temp);
+        }
+        $this->response($result, REST_Controller::HTTP_OK);
+      }else{
+        $this->response(
+            [
+              "status" => false,
+              "error" => "No category promo"
+            ],
+            REST_Controller::HTTP_NOT_FOUND);
+      }
+    }
+
+    public function promoSPBU_post(){
+      $this->checkExpiredKey();
+      if(null != $this->post('id_kategori')){
+        $data = $this->MSpbu->getAllPromoAktifByIdKategori($this->post('id_kategori'));
+      }else{
+        $data = $this->MSpbu->getAllPromoAktif();
+      }
       if($data->num_rows() != null){
         $result = array();
         foreach ($data->result() as $value) {
@@ -347,7 +375,11 @@ class Collection extends REST_Controller {
             'jumlah_prmo' => $value->jumlah_promo,
             'used' => $value->used,
             'waktu_mulai' => $value->waktu_mulai,
-            'waktu_selesai' => $value->waktu_selesai
+            'waktu_selesai' => $value->waktu_selesai,
+            'judul' => $value->judul,
+            'deskripsi' => $value->deskripsi,
+            'gambar' => $value->gambar,
+            'kategori' => $value->nama_kategori
           );
           array_push($result, $temp);
           unset($temp);
