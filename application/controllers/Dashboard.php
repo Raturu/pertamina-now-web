@@ -16,7 +16,7 @@ class Dashboard extends Admin_Controller {
     $this->content = 'admin/dashboard';     
     $this->navigation = 'template_admin/_parts/navigation/admin_view'; 
     // passing middle to function. change this for different views.
-    $this->data['page_title'] = 'Dashboard | NOKIA';
+    $this->data['page_title'] = 'Dashboard | Pertamina Now';
     $this->layout();
   }
 

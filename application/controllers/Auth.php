@@ -20,7 +20,6 @@ class Auth extends CI_Controller {
     }else{
       $data['captcha'] = $this->session->userdata('captcha');
     }
-    
     if($username!=null){
       $data['username'] = $username;
     }
@@ -66,7 +65,7 @@ class Auth extends CI_Controller {
       $this->session->set_userdata("usernameTemp",$username);
       $this->session->set_userdata("passwordTemp",$password);
       $this->session->set_userdata("captchaTemp",$captcha);
-      if(true){
+      if($this->checkCaptcha($captcha)){
         $data = $this->MAuth->cekData($username,$password);
         if($data->num_rows() != null){
           foreach ($data->result() as $value) {

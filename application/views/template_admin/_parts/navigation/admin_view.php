@@ -2,9 +2,9 @@
     <!-- Logo -->
     <a href="<?=base_url();?>Dashboard" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>N</b></span>
+      <span class="logo-mini"><b>PN</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b><img src="<?=base_url();?>assets/dist/img/nokia_logo_white.png" style="width:50%; height: 100%;"></b></span>
+      <span class="logo-lg"><b>Pertamina Now</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -55,12 +55,21 @@
     } di head_view -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" style="overflow-y: hidden;">
-        <li class="<?php if($page_title == 'Data User') { echo 'active'; } ?>">
-          <a href="<?php echo base_url('DataUser');?>">
-            <i class="fa fa-users"></i> <span>Data User</span>
+        <li class="<?php if($page_title == 'Dashboard | Pertamina Now') { echo 'active'; } ?>">
+          <a href="<?php echo base_url('Dashboard');?>">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        
+        <li class="<?php if($page_title == 'Data User | Pertamina Now') { echo 'active'; } ?>">
+          <a href="<?php echo base_url('User');?>">
+            <i class="fa fa-users"></i> <span>User</span>
+          </a>
+        </li>
+        <li class="<?php if($page_title == 'Data SPBU | Pertamina Now') { echo 'active'; } ?>">
+          <a href="<?php echo base_url('SPBU');?>">
+            <i class="fa fa-building"></i> <span>SPBU</span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar ASIDE -->

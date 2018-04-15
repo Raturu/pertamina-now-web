@@ -14,7 +14,7 @@
     <?php } ?>
     <!-- Default box -->
     <div class="row">
-      <p style="font-size: 24px; font-weight: 100; color:#134292; margin-left: 1%; margin-top: -0.3%;">Data User</p>
+      <p style="font-size: 24px; font-weight: 100; color:#dd4b39; margin-left: 1%; margin-top: -0.3%;">Data User</p>
       <div class="col-md-12">
         <table class="table table-bordered table-hover data-user" style="white-space: nowrap;">
           <thead>

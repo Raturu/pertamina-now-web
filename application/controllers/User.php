@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 include_once(APPPATH.'core/Admin_Controller.php');
-class DataUser extends Admin_Controller {
+class User extends Admin_Controller {
   function __construct()
   {
     parent::__construct();
@@ -12,10 +12,10 @@ class DataUser extends Admin_Controller {
   }
   public function index($nama_user = null) {
     $this->data['current_page'] = $this->uri->uri_string();
-    $this->content = 'admin/dataUser';     
+    $this->content = 'admin/user';     
     $this->navigation = 'template_admin/_parts/navigation/admin_view'; 
     // passing middle to function. change this for different views.
-    $this->data['page_title'] = 'Data User';
+    $this->data['page_title'] = 'Data User | Pertamina Now';
     $this->layout();
   }
 
@@ -50,20 +50,39 @@ class DataUser extends Admin_Controller {
     );
 
     $k=0;
+    $i=1;
     if($res->num_rows() != null){
         foreach ($res->result() as $value) {
+          if($value->username == ''){$username = '-';}else{$username = $value->username;}
+          if($value->nama == ''){$nama = '-';}else{$nama = $value->nama;}
+          if($value->ktp == ''){$ktp = '-';}else{$ktp = $value->ktp;}
+          if($value->tanggal_lahir == ''){$tanggal_lahir = '-';}else{$tanggal_lahir = $value->tanggal_lahir;}
+          if($value->tempat_lahir == ''){$tempat_lahir = '-';}else{$tempat_lahir = $value->tempat_lahir;}
+          if($value->email == ''){$email = '-';}else{$email = $value->email;}
+          if($value->no_tlp == ''){$no_tlp = '-';}else{$no_tlp = $value->no_tlp;}
+          if($value->rule == '1'){
+            $rule = 'Admin';
+          }else{
+            $rule = 'User';
+          }
+          if ($value->jenis_kelamin == '1') {
+            $jk = 'Laki-laki';
+          }else{
+            $jk = 'Perempuan';
+          }
             $rec['aaData'][$k] = array(
-                0 => 't|id||'.$value->id,
-                1 => 't|username|e|'.$value->username,
-                2 => 't|nama|e|'.$value->nama,
-                3 => 't|ktp|e|'.$value->ktp,
-                4 => 't|jenis_kelamin|e|'.$value->jenis_kelamin,
-                5 => 'd|tanggal_lahir|e|'.$value->tanggal_lahir,
-                6 => 't|tempat_lahir|e|'.$value->tempat_lahir,
-                7 => 'e|email|e|'.$value->email,
-                8 => 't|no_tlp|e|'.$value->no_tlp,
+                0 => 't|id||'.$i++,
+                1 => 't|username|e|'.$username,
+                2 => 't|nama|e|'.$nama,
+                3 => 't|ktp|e|'.$ktp,
+                4 => 't|jenis_kelamin|e|'.$jk,
+                5 => 'd|tanggal_lahir|e|'.$tanggal_lahir,
+                6 => 't|tempat_lahir|e|'.$tempat_lahir,
+                7 => 'e|email|e|'.$email,
+                8 => 't|no_tlp|e|'.$no_tlp,
                 9 => 't|poin||'.$value->poin,
-                10 => 't|rule||'.$value->rule,
+                10 => 't|rule||'.$rule,
+                11 => 't|id||'.$value->id,
             );
             $k++;
             $start++;
