@@ -41,4 +41,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		public function getNearSPBU($latitude, $longitude){
+			return $this->db->query("SELECT *, ( 3959 * acos( cos( radians('$tatitude') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians('$longitude') ) + sin( radians('$tatitude') ) * sin( radians( latitude ) ) ) ) AS distance FROM spbu ORDER BY distance desc LIMIT 0 , 20;");
+			// menggunakan desc brarti diurutkan paling jauh, dikarenakan array_push jadinya terbalik.
+		}
+
 	}

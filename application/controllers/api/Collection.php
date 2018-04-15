@@ -352,16 +352,37 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function nearbySPBU_post(){
+      $this->checkExpiredKey();
+      $data = $this->MSpbu->getNearSPBU($this->post('latitude'), $this->post('longitude'));
+      $result = array();
+      foreach ($data->result() as $value) {
+        $temp = array(
+          'id_spbu' => $value->id,
+          'no_spbu' => $value->no_spbu,
+          'nama_spbu' => $value->nama,
+          'alamat_spbu' => $value->alamat,
+          'kota_spbu' => $value->kota,
+          'provinsi_spbu' => $value->provinsi,
+          'latitude' => $value->latitude,
+          'longitude' => $value->longitude
+        );
+        array_push($result, $temp);
+        unset($temp);
+      }
+      $this->response($result,REST_Controller::HTTP_OK);
+    }
+
     public function pointUser_get(){
       $this->checkExpiredKey();
       $id_user = $this->getIdFromKey();
       $point = $this->MSpbu->getPointByIdUser($id_user);
-       $this->response(
-            [
-              "status" => true,
-              "balance" => $point
-            ],
-            REST_Controller::HTTP_OK);
+      $this->response(
+          [
+            "status" => true,
+            "balance" => $point
+          ],
+          REST_Controller::HTTP_OK);
     }
 
     public function balance_get(){
