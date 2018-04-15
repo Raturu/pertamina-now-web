@@ -352,6 +352,18 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function pointUser_get(){
+      $this->checkExpiredKey();
+      $id_user = $this->getIdFromKey();
+      $point = $this->MSpbu->getPointByIdUser($id_user);
+       $this->response(
+            [
+              "status" => true,
+              "balance" => $point
+            ],
+            REST_Controller::HTTP_OK);
+    }
+
     public function balance_get(){
       $this->checkExpiredKey();
       $id_user = $this->getIdFromKey();

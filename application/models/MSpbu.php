@@ -32,4 +32,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		public function getPointByIdUser($id_user){
+			$this->db->SELECT("poin");
+			$this->db->where('id',$id_user);
+			$data = $this->db->get('user');
+			foreach ($data->result() as $value) {
+				return $value->poin;
+			}
+		}
+
 	}
