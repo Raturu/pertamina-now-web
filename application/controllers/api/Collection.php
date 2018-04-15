@@ -352,6 +352,18 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function balance_get(){
+      $this->checkExpiredKey();
+      $id_user = $this->getIdFromKey();
+      $balance = $this->MSpbu->getBalanceByIdUser($id_user);
+      $this->response(
+            [
+              "status" => true,
+              "balance" => $balance
+            ],
+            REST_Controller::HTTP_OK);
+    }
+
     public function promoSPBU_post(){
       $this->checkExpiredKey();
       if('null' != $this->post('id_kategori')){

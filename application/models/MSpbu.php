@@ -23,4 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $this->db->query("SELECT * from promo where id='$id'");
 		}
 
+		public function getBalanceByIdUser($id_user){
+			$this->db->SELECT("saldo");
+			$this->db->where('id',$id_user);
+			$data = $this->db->get('user');
+			foreach ($data->result() as $value) {
+				return $value->saldo;
+			}
+		}
+
 	}
