@@ -378,7 +378,7 @@ class Collection extends REST_Controller {
             'waktu_selesai' => $value->waktu_selesai,
             'judul' => $value->judul,
             'deskripsi' => $value->deskripsi,
-            'gambar' => $value->gambar,
+            'gambar' => base_url().'assets/dist/img/promo/'.$value->gambar,
             'kategori' => $value->nama_kategori
           );
           array_push($result, $temp);
