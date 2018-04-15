@@ -354,7 +354,7 @@ class Collection extends REST_Controller {
 
     public function promoSPBU_post(){
       $this->checkExpiredKey();
-      if(null != $this->post('id_kategori')){
+      if('null' != $this->post('id_kategori')){
         $data = $this->MSpbu->getAllPromoAktifByIdKategori($this->post('id_kategori'));
       }else{
         $data = $this->MSpbu->getAllPromoAktif();
