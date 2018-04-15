@@ -91,4 +91,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->query("UPDATE user set ktp='$ktp' where id='$id_user'");
 		}
 
+		public function getTransaksiByIdUser($id_user){
+			return $this->db->query("SELECT b.jenis, t.waktu_transaksi, t.total_pembelian, sb.harga, t.total_pembayaran, s.nama, s.alamat, s.kota, s.provinsi, s.latitude, s.longitude, t.id_promo from transaksi t, spbu_bbm sb, bbm b, spbu s where t.id_spbu_bbm=sb.id and sb.id_spbu=s.id and sb.id_bbm=b.id and t.id_user='$id_user'");
+		}
+
+		public function getBalanceByIdUser($id_user){
+			$this->db->SELECT("saldo");
+			$this->db->where('id',$id_user);
+			$data = $this->db->get('user');
+			foreach ($data->result() as $value) {
+				return $value->saldo;
+			}
+		}
+
+		public function getPointByIdUser($id_user){
+			$this->db->SELECT("poin");
+			$this->db->where('id',$id_user);
+			$data = $this->db->get('user');
+			foreach ($data->result() as $value) {
+				return $value->poin;
+			}
+		}
+
+		public function topUp($id_user,$amount){
+			$this->db->query("UPDATE user set saldo = saldo + '$amount' where id = '$id_user'");
+		}
+
 	}

@@ -352,6 +352,18 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function topUp_post(){
+      $this->checkExpiredKey();
+      $id_user = $this->getIdFromKey();
+      $this->MDataUser->topUp($id_user, $this->post('amount'));
+      $this->response(
+            [
+              "status" => true,
+              "message" => "Success top up"
+            ],
+            REST_Controller::HTTP_OK);
+    }
+
     public function nearbySPBU_post(){
       $this->checkExpiredKey();
       $data = $this->MSpbu->getNearSPBU($this->post('latitude'), $this->post('longitude'));
@@ -376,7 +388,7 @@ class Collection extends REST_Controller {
     public function pointUser_get(){
       $this->checkExpiredKey();
       $id_user = $this->getIdFromKey();
-      $point = $this->MSpbu->getPointByIdUser($id_user);
+      $point = $this->MDataUser->getPointByIdUser($id_user);
       $this->response(
           [
             "status" => true,
@@ -388,7 +400,7 @@ class Collection extends REST_Controller {
     public function balance_get(){
       $this->checkExpiredKey();
       $id_user = $this->getIdFromKey();
-      $balance = $this->MSpbu->getBalanceByIdUser($id_user);
+      $balance = $this->MDataUser->getBalanceByIdUser($id_user);
       $this->response(
             [
               "status" => true,
@@ -443,7 +455,7 @@ class Collection extends REST_Controller {
     public function transaksi_get(){
       $this->checkExpiredKey();
       $id_user = $this->getIdFromKey();
-      $dataTransaksi = $this->MSpbu->getTransaksiByIdUser($id_user);
+      $dataTransaksi = $this->MDataUser->getTransaksiByIdUser($id_user);
       if($dataTransaksi->num_rows() != null){
         $result = array();
         foreach ($dataTransaksi->result() as $value) {
