@@ -29,7 +29,7 @@
         </div>
         <div class="col-md-6">
           <div class="ibox-content" style="border:none !important;background:#124191 !important; color:#ffffff !important;padding:0px !important;">
-            <center><img src="<?=base_url()?>assets/dist/img/nokia_logo_white.png" width="250px" height="100px" style="margin-top: -20px !important; margin-bottom: -10px !important;"></center>
+            <div style=" height: 40px;"></div>
             <form class="m-t" role="form" method="post" action="<?=base_url();?>Auth/login">
               <div class="form-group">
                 <input type="text" id="username" name="username" style="color:black !important;" class="form-control" placeholder="Username" required="" autofocus="" value="<?php echo $this->session->userdata('usernameTemp'); ?>">

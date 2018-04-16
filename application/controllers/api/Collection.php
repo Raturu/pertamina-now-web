@@ -496,6 +496,31 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function listBBM_post(){
+      $data = $this->MSpbu->getListBBMByIdSPBU($this->post('id_spbu'));
+      if ($data->num_rows() != null) {
+        $result = array();
+        foreach ($data->result() as $value) {
+          $temp = array(
+            'id_spbu' => $value->id_spbu,
+            'id_bbm' => $value->id_bbm,
+            'harga' => $value->harga,
+            'nama_bbm' => $value->jenis
+          );
+          array_push($result, $temp);
+          unset($temp);
+        }
+        $this->response($result, REST_Controller::HTTP_OK);
+      }else{
+        $this->response(
+            [
+              "status" => false,
+              "error" => "No bbm"
+            ],
+            REST_Controller::HTTP_NOT_FOUND);
+      }
+    }
+
     private function getIdFromKey(){
       $data = getallheaders();
       $key = base64_decode($data['x-api-key']);
