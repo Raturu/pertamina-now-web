@@ -18,6 +18,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $this->db->get('user');
 		}
 
+		public function getUserByKTP($ktp){
+			$this->db->where('ktp', $ktp);
+			return $this->db->get('user');
+		}
+
 		public function updateProfil($id_user,$data){
 			$this->db->where('id',$id_user);
 			$this->db->update('user',$data);

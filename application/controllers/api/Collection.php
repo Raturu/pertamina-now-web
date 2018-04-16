@@ -521,6 +521,52 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function requestBuy_post(){
+      $data = $this->MDataUser->getUserByKTP($this->post('uid'));
+      if($data->num_rows() != null){
+        foreach ($data->result() as $value) {
+          if ($value->saldo == 0) {
+            $this->response(
+                [
+                  "status" => "error",
+                  "max_buy" => "Balance 0"
+                ],
+                REST_Controller::HTTP_BAD_REQUEST);
+          }else if($value->status_transaksi == 1){
+            $this->response(
+                [
+                  "status" => "error",
+                  "error" => "In transaction"
+                ],
+                REST_Controller::HTTP_BAD_REQUEST);
+          }else {
+            if($this->post('free_mode') == 'TRUE'){
+              $this->response(
+                  [
+                    "status" => "ok",
+                    "max_buy" => $value->saldo
+                  ],
+                  REST_Controller::HTTP_BAD_REQUEST);
+            }else{
+              $this->response(
+                  [
+                    "status" => "ok",
+                    "max_buy" => $this->post('request_value')
+                  ],
+                  REST_Controller::HTTP_BAD_REQUEST);
+            }
+          }
+        }
+      }else{
+        $this->response(
+            [
+              "status" => "error",
+              "error" => "KTP not found"
+            ],
+            REST_Controller::HTTP_NOT_FOUND);
+      }
+    }
+
     private function getIdFromKey(){
       $data = getallheaders();
       $key = base64_decode($data['x-api-key']);
