@@ -21,9 +21,9 @@
         <div class="col-md-6">
           <div style="max-width: 100%; margin-top:10%;">
             <ul class="bxslider">
-              <li><img src="<?=base_url()?>assets/dist/css/slide_show/imgs/image1.jpg"></li>
-                <li><img src="<?=base_url()?>assets/dist/css/slide_show/imgs/image2.jpg"></li>
-              <li><img src="<?=base_url()?>assets/dist/css/slide_show/imgs/image3.jpg"></li>
+              <li><img src="<?=base_url()?>assets/dist/css/slide_show/imgs/image1.png"></li>
+              <li><img src="<?=base_url()?>assets/dist/css/slide_show/imgs/image2.png"></li>
+              <!-- <li><img src="<?=base_url()?>assets/dist/css/slide_show/imgs/image3.jpg"></li> -->
             </ul>
           </div>
         </div>

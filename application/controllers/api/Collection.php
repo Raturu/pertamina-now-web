@@ -529,33 +529,42 @@ class Collection extends REST_Controller {
             $this->response(
                 [
                   "status" => "error",
-                  "max_buy" => "Balance 0"
+                  "error" => "Balance 0"
                 ],
                 REST_Controller::HTTP_BAD_REQUEST);
-          }else if($value->status_transaksi == 1){
+          }
+          if($value->status_transaksi == '1'){
             $this->response(
                 [
                   "status" => "error",
                   "error" => "In transaction"
                 ],
                 REST_Controller::HTTP_BAD_REQUEST);
-          }else {
-            if($this->post('free_mode') == 'TRUE'){
-              $this->response(
-                  [
-                    "status" => "ok",
-                    "max_buy" => $value->saldo
-                  ],
-                  REST_Controller::HTTP_BAD_REQUEST);
-            }else{
+          }
+          if($this->post('free_mode') == 'TRUE'){
+            $this->response(
+                [
+                  "status" => "ok",
+                  "max_buy" => $value->saldo
+                ],
+                REST_Controller::HTTP_OK);
+          }else{
+            if($this->post('request_value') <= $value->saldo){
               $this->response(
                   [
                     "status" => "ok",
                     "max_buy" => $this->post('request_value')
                   ],
+                  REST_Controller::HTTP_OK);
+            }else{
+              $this->response(
+                  [
+                    "status" => "error",
+                    "error" => "Balance is not enough"
+                  ],
                   REST_Controller::HTTP_BAD_REQUEST);
             }
-          }
+          }          
         }
       }else{
         $this->response(
