@@ -169,3 +169,15 @@ DEBUG - 2018-04-17 14:06:55 --> Config file loaded: C:\xampp\htdocs\pertamina_no
 DEBUG - 2018-04-17 14:06:55 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/rest.php
 DEBUG - 2018-04-17 14:06:55 --> Nexmo class already loaded. Second attempt ignored.
 DEBUG - 2018-04-17 14:06:56 --> Total execution time: 0.2807
+DEBUG - 2018-04-17 14:28:10 --> UTF-8 Support Enabled
+DEBUG - 2018-04-17 14:28:11 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2018-04-17 14:28:11 --> Severity: Parsing Error --> syntax error, unexpected ':', expecting ']' C:\xampp\htdocs\pertamina_now\application\controllers\api\Collection.php 531
+DEBUG - 2018-04-17 14:28:20 --> UTF-8 Support Enabled
+DEBUG - 2018-04-17 14:28:20 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2018-04-17 14:28:20 --> Severity: Parsing Error --> syntax error, unexpected ':', expecting ']' C:\xampp\htdocs\pertamina_now\application\controllers\api\Collection.php 531
+DEBUG - 2018-04-17 14:29:44 --> UTF-8 Support Enabled
+DEBUG - 2018-04-17 14:29:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-17 14:29:44 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-17 14:29:44 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/rest.php
+DEBUG - 2018-04-17 14:29:44 --> Nexmo class already loaded. Second attempt ignored.
+DEBUG - 2018-04-17 14:29:44 --> Total execution time: 0.3227

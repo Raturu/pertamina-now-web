@@ -528,16 +528,16 @@ class Collection extends REST_Controller {
           if ($value->saldo == 0) {
             $this->response(
                 [
-                  "status": "NO_BALANCE",
-                  "max_buy": 0
+                  "status"=>"NO_BALANCE",
+                  "max_buy"=> 0
                 ],
                 REST_Controller::HTTP_BAD_REQUEST);
           }
           if($value->status_transaksi == '1'){
             $this->response(
                 [
-                  "status": "ERROR",
-                  "max_buy": 0
+                  "status"=> "ERROR",
+                  "max_buy"=> 0
                 ],
                 REST_Controller::HTTP_BAD_REQUEST);
           }
@@ -559,8 +559,8 @@ class Collection extends REST_Controller {
             }else{
               $this->response(
                   [
-                      "status": "NO_BALANCE",
-                      "max_buy": 0
+                      "status"=> "NO_BALANCE",
+                      "max_buy"=> 0
                   ],
                   REST_Controller::HTTP_BAD_REQUEST);
             }
@@ -569,8 +569,8 @@ class Collection extends REST_Controller {
       }else{
         $this->response(
             [
-              "status": "ERROR",
-              "max_buy": 0
+              "status"=> "ERROR",
+              "max_buy"=> 0
             ],
             REST_Controller::HTTP_NOT_FOUND);
       }
