@@ -504,6 +504,7 @@ class Collection extends REST_Controller {
           $temp = array(
             'id_spbu' => $value->id_spbu,
             'id_bbm' => $value->id_bbm,
+            'id_spbu_bbm' => $value->id_spbu_bbm,
             'harga' => $value->harga,
             'nama_bbm' => $value->jenis
           );

@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function getListBBMByIdSPBU($id_spbu){
-			return $this->db->query("select s.id as id_spbu, s.nama, sb.harga,b.id as id_bbm, b.jenis from spbu s, spbu_bbm sb, bbm b where s.id=sb.id_spbu and sb.id_bbm=b.id and s.id='$id_spbu'");
+			return $this->db->query("select s.id as id_spbu, s.nama, sb.id as id_spbu_bbm, sb.harga,b.id as id_bbm, b.jenis from spbu s, spbu_bbm sb, bbm b where s.id=sb.id_spbu and sb.id_bbm=b.id and s.id='$id_spbu'");
 		}
 
 	}
