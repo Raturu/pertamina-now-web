@@ -531,7 +531,7 @@ class Collection extends REST_Controller {
                   "status"=>"NO_BALANCE",
                   "max_buy"=> 0
                 ],
-                REST_Controller::HTTP_BAD_REQUEST);
+                REST_Controller::HTTP_OK);
           }
           if($value->status_transaksi == '1'){
             $this->response(
@@ -539,7 +539,7 @@ class Collection extends REST_Controller {
                   "status"=> "ERROR",
                   "max_buy"=> 0
                 ],
-                REST_Controller::HTTP_BAD_REQUEST);
+                REST_Controller::HTTP_OK);
           }
           if($this->post('free_mode') == 'TRUE'){
             $this->response(
@@ -562,7 +562,7 @@ class Collection extends REST_Controller {
                       "status"=> "NO_BALANCE",
                       "max_buy"=> 0
                   ],
-                  REST_Controller::HTTP_BAD_REQUEST);
+                  REST_Controller::HTTP_OK);
             }
           }          
         }
@@ -572,7 +572,7 @@ class Collection extends REST_Controller {
               "status"=> "ERROR",
               "max_buy"=> 0
             ],
-            REST_Controller::HTTP_NOT_FOUND);
+            REST_Controller::HTTP_OK);
       }
     }
 

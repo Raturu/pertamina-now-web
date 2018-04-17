@@ -4,7 +4,7 @@
  * English language
  */
 
-$lang['text_rest_invalid_api_key'] = 'Invalid API key %s'; // %s is the REST API key
+$lang['text_rest_invalid_api_key'] = 'Invalid API key'; // %s is the REST API key
 $lang['text_rest_invalid_credentials'] = 'Invalid credentials';
 $lang['text_rest_ip_denied'] = 'IP denied';
 $lang['text_rest_ip_unauthorized'] = 'IP unauthorized';
