@@ -151,3 +151,21 @@ DEBUG - 2018-04-17 14:02:47 --> Config file loaded: C:\xampp\htdocs\pertamina_no
 DEBUG - 2018-04-17 14:02:47 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/rest.php
 DEBUG - 2018-04-17 14:02:47 --> Nexmo class already loaded. Second attempt ignored.
 DEBUG - 2018-04-17 14:02:48 --> Total execution time: 0.2629
+DEBUG - 2018-04-17 14:06:42 --> UTF-8 Support Enabled
+DEBUG - 2018-04-17 14:06:42 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-17 14:06:42 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-17 14:06:42 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/rest.php
+DEBUG - 2018-04-17 14:06:42 --> Nexmo class already loaded. Second attempt ignored.
+DEBUG - 2018-04-17 14:06:42 --> Total execution time: 0.5867
+DEBUG - 2018-04-17 14:06:50 --> UTF-8 Support Enabled
+DEBUG - 2018-04-17 14:06:50 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-17 14:06:50 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-17 14:06:51 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/rest.php
+DEBUG - 2018-04-17 14:06:51 --> Nexmo class already loaded. Second attempt ignored.
+DEBUG - 2018-04-17 14:06:51 --> Total execution time: 0.1801
+DEBUG - 2018-04-17 14:06:55 --> UTF-8 Support Enabled
+DEBUG - 2018-04-17 14:06:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-17 14:06:55 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-17 14:06:55 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/rest.php
+DEBUG - 2018-04-17 14:06:55 --> Nexmo class already loaded. Second attempt ignored.
+DEBUG - 2018-04-17 14:06:56 --> Total execution time: 0.2807

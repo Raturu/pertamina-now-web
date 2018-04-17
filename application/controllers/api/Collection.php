@@ -528,23 +528,23 @@ class Collection extends REST_Controller {
           if ($value->saldo == 0) {
             $this->response(
                 [
-                  "status" => "error",
-                  "error" => "Balance 0"
+                  "status": "NO_BALANCE",
+                  "max_buy": 0
                 ],
                 REST_Controller::HTTP_BAD_REQUEST);
           }
           if($value->status_transaksi == '1'){
             $this->response(
                 [
-                  "status" => "error",
-                  "error" => "In transaction"
+                  "status": "ERROR",
+                  "max_buy": 0
                 ],
                 REST_Controller::HTTP_BAD_REQUEST);
           }
           if($this->post('free_mode') == 'TRUE'){
             $this->response(
                 [
-                  "status" => "ok",
+                  "status" => "OK",
                   "max_buy" => $value->saldo
                 ],
                 REST_Controller::HTTP_OK);
@@ -552,15 +552,15 @@ class Collection extends REST_Controller {
             if($this->post('request_value') <= $value->saldo){
               $this->response(
                   [
-                    "status" => "ok",
+                    "status" => "OK",
                     "max_buy" => $this->post('request_value')
                   ],
                   REST_Controller::HTTP_OK);
             }else{
               $this->response(
                   [
-                    "status" => "error",
-                    "error" => "Balance is not enough"
+                      "status": "NO_BALANCE",
+                      "max_buy": 0
                   ],
                   REST_Controller::HTTP_BAD_REQUEST);
             }
@@ -569,8 +569,8 @@ class Collection extends REST_Controller {
       }else{
         $this->response(
             [
-              "status" => "error",
-              "error" => "KTP not found"
+              "status": "ERROR",
+              "max_buy": 0
             ],
             REST_Controller::HTTP_NOT_FOUND);
       }
