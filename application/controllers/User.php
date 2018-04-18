@@ -26,16 +26,16 @@ class User extends Admin_Controller {
 
     $col = $_REQUEST['iSortCol_0'];
 
-    $arr = array(0 => 'id', 1 => 'username', 2 => 'nama', 3=> 'ktp', 4=> 'jenis_kelamin', 5=> 'tanggal_lahir', 6=> 'tempat_lahir', 7=> 'email', 8 => 'no_tlp', 9 => 'poin', 10=> 'rule');
+    $arr = array(0 => 'id', 1 => 'nama', 2=> 'ktp', 3=> 'jenis_kelamin', 4=> 'tanggal_lahir', 5=> 'tempat_lahir', 6=> 'email', 7 => 'no_tlp', 8 => 'poin', 9=> 'rule');
 
     $sort_by = $arr[$col];
     $sort_type = $_REQUEST['sSortDir_0'];
 
         
-    $qry = "select * from user u where (u.username LIKE '%".$sSearch."%' or u.nama LIKE '%".$sSearch."%' or u.ktp LIKE '%".$sSearch."%' or u.jenis_kelamin LIKE '%".$sSearch."%' or u.tanggal_lahir LIKE '%".$sSearch."%' or u.tempat_lahir LIKE '%".$sSearch."%' or u.email LIKE '%".$sSearch."%' or u.no_tlp like '%".$sSearch."%')  ORDER BY ".$sort_by." ".$sort_type." LIMIT ".$start.", ".$length;
+    $qry = "select * from user u where (u.nama LIKE '%".$sSearch."%' or u.ktp LIKE '%".$sSearch."%' or u.jenis_kelamin LIKE '%".$sSearch."%' or u.tanggal_lahir LIKE '%".$sSearch."%' or u.tempat_lahir LIKE '%".$sSearch."%' or u.email LIKE '%".$sSearch."%' or u.no_tlp like '%".$sSearch."%')  ORDER BY ".$sort_by." ".$sort_type." LIMIT ".$start.", ".$length;
     $res = $this->db->query($qry);
 
-    $qry = "select count(u.id) as count from user u where (u.username LIKE '%".$sSearch."%' or u.nama LIKE '%".$sSearch."%' or u.ktp LIKE '%".$sSearch."%' or u.jenis_kelamin LIKE '%".$sSearch."%' or u.tanggal_lahir LIKE '%".$sSearch."%' or u.tempat_lahir LIKE '%".$sSearch."%' or u.email LIKE '%".$sSearch."%' or u.no_tlp like '%".$sSearch."%')";
+    $qry = "select count(u.id) as count from user u where (u.nama LIKE '%".$sSearch."%' or u.ktp LIKE '%".$sSearch."%' or u.jenis_kelamin LIKE '%".$sSearch."%' or u.tanggal_lahir LIKE '%".$sSearch."%' or u.tempat_lahir LIKE '%".$sSearch."%' or u.email LIKE '%".$sSearch."%' or u.no_tlp like '%".$sSearch."%')";
     $result = $this->db->query($qry);
 
     foreach($result->result() as $key)
@@ -53,7 +53,6 @@ class User extends Admin_Controller {
     $i=1;
     if($res->num_rows() != null){
         foreach ($res->result() as $value) {
-          if($value->username == ''){$username = '-';}else{$username = $value->username;}
           if($value->nama == ''){$nama = '-';}else{$nama = $value->nama;}
           if($value->ktp == ''){$ktp = '-';}else{$ktp = $value->ktp;}
           if($value->tanggal_lahir == ''){$tanggal_lahir = '-';}else{$tanggal_lahir = $value->tanggal_lahir;}
@@ -72,17 +71,16 @@ class User extends Admin_Controller {
           }
             $rec['aaData'][$k] = array(
                 0 => 't|id||'.$i++,
-                1 => 't|username|e|'.$username,
-                2 => 't|nama|e|'.$nama,
-                3 => 't|ktp|e|'.$ktp,
-                4 => 't|jenis_kelamin|e|'.$jk,
-                5 => 'd|tanggal_lahir|e|'.$tanggal_lahir,
-                6 => 't|tempat_lahir|e|'.$tempat_lahir,
-                7 => 'e|email|e|'.$email,
-                8 => 't|no_tlp|e|'.$no_tlp,
-                9 => 't|poin||'.$value->poin,
-                10 => 't|rule||'.$rule,
-                11 => 't|id||'.$value->id,
+                1 => 't|nama|e|'.$nama,
+                2 => 't|ktp|e|'.$ktp,
+                3 => 'sg|jenis_kelamin|e|'.$jk,
+                4 => 'd|tanggal_lahir|e|'.$tanggal_lahir,
+                5 => 't|tempat_lahir|e|'.$tempat_lahir,
+                6 => 'e|email|e|'.$email,
+                7 => 't|no_tlp|e|'.$no_tlp,
+                8 => 't|poin||'.$value->poin,
+                9 => 'sr|rule||'.$rule,
+                10 => 't|id||'.$value->id,
             );
             $k++;
             $start++;
@@ -135,28 +133,19 @@ class User extends Admin_Controller {
   }
 
   function create_data(){
-    if($this->MDataUser->cekUsername($this->input->post('username'))->num_rows() == null){
-      $data = array(
-        'nama' => $this->input->post('nama'),
-        'ktp' => $this->input->post('ktp'),
-        'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-        'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-        'tempat_lahir' => $this->input->post('tempat_lahir'),
-        'email' => $this->input->post('email'),
-        'no_tlp' => $this->input->post('no_tlp'),
-        'username' => $this->input->post('username'),
-        'password' => md5($this->input->post('password')),
-        'rule' => $this->input->post('rule'),
-      );
-      $id_user = $this->MDataUser->create_data($data);
-      $this->session->set_flashdata('sukses',true);
-      $this->session->set_flashdata('pesanSukses','<h4><i class="fa fa-check"></i> Success !</h4><p>Users has been entered to the database successfully.</p>');
-      redirect('DataUser','refresh');
-    }else{
-      $this->session->set_flashdata('gagal',true);
-      $this->session->set_flashdata('pesanGagal','<h4><i class="fa fa-times"></i> Failed!</h4><p>Username is already exist.</p>');
-      redirect('DataUser','refresh');
-    }
+    $data = array(
+      'nama' => $this->input->post('nama'),
+      'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+      'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+      'tempat_lahir' => $this->input->post('tempat_lahir'),
+      'email' => $this->input->post('email'),
+      'no_tlp' => $this->input->post('no_tlp'),
+      'rule' => $this->input->post('rule')
+    );
+    $id_user = $this->MDataUser->create_data($data);
+    $this->session->set_flashdata('sukses',true);
+    $this->session->set_flashdata('pesanSukses','<h4><i class="fa fa-check"></i> Success !</h4><p>Users has been entered to the database successfully.</p>');
+    redirect('User','refresh');
   }
 
   function update_data(){
@@ -193,11 +182,11 @@ class User extends Admin_Controller {
       $this->MDataUser->editPassword($this->input->post('id'),'NOK1'.$this->input->post('password'));
       $this->session->set_flashdata('sukses',true);
       $this->session->set_flashdata('pesanSukses','<h4><i class="fa fa-check"></i> Success !</h4><p>Edit password '.$this->input->post('nama_user').' successfully.</p>');
-      redirect('DataUser','refresh');
+      redirect('User','refresh');
     }else{
       $this->session->set_flashdata('gagal',true);
       $this->session->set_flashdata('pesanGagal','<h4><i class="fa fa-times"></i> Failed!</h4><p>Edit password '.$this->input->post('nama_user').' does not match the confirm password.</p>');
-      redirect('DataUser','refresh');
+      redirect('User','refresh');
     }
   }
 
@@ -244,7 +233,7 @@ class User extends Admin_Controller {
     }
     $this->session->set_flashdata('sukses',true);
     $this->session->set_flashdata('pesanSukses','<h4><i class="fa fa-check"></i> Success !</h4><p>Edit group '.$this->input->post('nama_user').' successfully.</p>');
-    redirect('DataUser','refresh');
+    redirect('User','refresh');
   }
 
   public function modelEditGroup(){

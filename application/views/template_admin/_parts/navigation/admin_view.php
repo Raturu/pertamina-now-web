@@ -18,7 +18,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li >
-              <a href="<?=base_url()?>Auth/logout"><span class="hidden-xs"><?php echo $this->session->userdata("nama_lengkap"); ?></span><i style="margin-left: 40px;" class="fa fa-sign-out"></i> Logout</a>
+              <a href="<?=base_url()?>Auth/logout"><span class="hidden-xs"><?php echo $this->session->userdata("nama"); ?></span><i style="margin-left: 40px;" class="fa fa-sign-out"></i> Logout</a>
           </li>
           <?php if($this->session->userdata('nama_group') == "Admin"){ ?>
           <li class="dropdown user user-menu">

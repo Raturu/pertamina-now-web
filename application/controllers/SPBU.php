@@ -56,22 +56,63 @@ class SPBU extends Admin_Controller {
         foreach ($res->result() as $value) {
             $iterasi = 0;
             $rec['aaData'][$k] = array(
-                $iterasi => 't|id||'.$i++,
-                $iterasi++ => 't|no_spbu|e|'.$value->id,
-                $iterasi++ => 't|no_spbu|e|'.$value->no_spbu,
-                $iterasi++ => 't|nama|e|'.$value->nama,
-                $iterasi++ => 't|alamat|e|'.$value->alamat,
-                $iterasi++ => 't|kota|e|'.$value->kota,
-                $iterasi++ => 't|provinsi|e|'.$value->provinsi,
-                $iterasi++ => 't|latitude|e|'.$value->latitude,
-                $iterasi++ => 't|longitude|e|'.$value->longitude,
-                $iterasi++ => 't|longitude|e|'.$value->id
+                $iterasi => 't|no||'.$i++,
+                $iterasi+=1 => 't|no_spbu|e|'.$value->no_spbu,
+                $iterasi+=1 => 't|nama|e|'.$value->nama,
+                $iterasi+=1 => 't|alamat|e|'.$value->alamat,
+                $iterasi+=1 => 't|kota|e|'.$value->kota,
+                $iterasi+=1 => 't|provinsi|e|'.$value->provinsi,
+                $iterasi+=1 => 't|latitude|e|'.$value->latitude,
+                $iterasi+=1 => 't|longitude|e|'.$value->longitude,
+                $iterasi+=1 => 't|id|e|'.$value->id
             );
             $k++;
             $start++;
         }
     }
     echo json_encode($rec);
+  }
+
+  function update_data(){
+    $userId      = $_REQUEST['id'];
+    $newValue   = $_REQUEST['newValue'];
+    $colName    = $_REQUEST['colName'];
+
+    if($newValue == ""){
+        $newValue = "-";
+    }
+
+    if($userId != '' && $newValue != '' && $colName != '')
+    {
+        $data = array(
+            $colName => $newValue,
+        );
+        $this->db->where('id', $userId);
+        if($this->db->update('spbu',$data))
+        {   
+            echo 1;
+        }
+        else
+        {
+            echo 0;
+        }
+    }
+  }
+
+  function create_data(){
+    $data = array(
+        'no_spbu' => $this->input->post('no_spbu'),
+        'nama' => $this->input->post('nama'),
+        'alamat' => $this->input->post('alamat'),
+        'kota' => $this->input->post('kota'),
+        'provinsi' => $this->input->post('provinsi'),
+        'latitude' => $this->input->post('latitude'),
+        'longitude' => $this->input->post('longitude')
+      );
+      $id_user = $this->MSpbu->create_data($data);
+      $this->session->set_flashdata('sukses',true);
+      $this->session->set_flashdata('pesanSukses','<h4><i class="fa fa-check"></i> Success !</h4><p>SPBU has been entered to the database successfully.</p>');
+      redirect('SPBU','refresh');
   }
   
 }

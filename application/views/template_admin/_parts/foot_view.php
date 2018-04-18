@@ -35,7 +35,7 @@
           "lengthMenu": [10,20, 40, 60],
           "iDisplayLength" :20,
           "scrollX":true,
-          "scrollY":"60vh", //awalnya tidak ada
+          "scrollY":"57vh", //awalnya tidak ada
           "columnDefs": [
             {
               "targets": '_all',
@@ -47,11 +47,15 @@
                       res[0] = 'date';
                     }else if(res[0] == 'e'){
                       res[0] = 'email';
+                    }else if(res[0] == 'sg'){
+                      res[0] = 'selectGender';
+                    }else if(res[0] == 'sr'){
+                      res[0] = 'selectRule';
                     }
                     if(res[2] == 'e'){
                       res[2] = 'editable';
                     }
-                    var id = row[11].split("|");
+                    var id = row[10].split("|");
                     return "<div><span type='"+res[0]+"' id='"+id[3]+"' name='"+res[1]+"' class='"+res[2]+"'>"+res[3]+"</span></div>"
               } 
             }
@@ -73,6 +77,18 @@
           $(this).html('<input type="date" style="width:90px;" class="update" value="'+ oldValue +'" />');
         }else if($(this).attr('type') == "email"){
           $(this).html('<input type="email" style="width:90px;" class="update" value="'+ oldValue +'" />');
+        }else if($(this).attr('type') == "selectGender"){
+          if(oldValue == 'Laki-laki'){
+            $(this).html('<select style="width:90px;" class="update"><option value="1" selected>Laki-laki</option><option value="0">Perempuan</option></select>');
+          }else{
+            $(this).html('<select style="width:90px;" class="update"><option value="1">Laki-laki</option><option value="0" selected>Perempuan</option></select>');
+          }
+        }else if($(this).attr('type') == "selectRule"){
+          if (oldValue == 'Admin') {
+            $(this).html('<select style="width:90px;" class="update"><option value="1" selected>Admin</option><option value="0">User</option></select>');
+          }else{
+            $(this).html('<select style="width:90px;" class="update"><option value="1">Admin</option><option value="0" selected>User</option></select>');
+          }
         }
         $(this).find('.update').focus();
       });
@@ -101,11 +117,15 @@
               }
               $(elem).parent().addClass('editable');
               $(elem).parent().html(newValue);
+              table.ajax.reload( null, false );
             }
           });
         }
         else
         {
+          if(newValue == ''){
+            newValue = '-';
+          }
           $(elem).parent().addClass('editable');
           $(this).parent().html(newValue);
         }
@@ -113,56 +133,56 @@
         // end inline editing
 
         // check password - confirm password  
-      $("#rePass").focusout(function(){
-        if($("#pass").val() != $("#rePass").val()){
-          $("#notMatch").show();
-        }else{
-          $("#notMatch").hide();
-        }
-      });
+      // $("#rePass").focusout(function(){
+      //   if($("#pass").val() != $("#rePass").val()){
+      //     $("#notMatch").show();
+      //   }else{
+      //     $("#notMatch").hide();
+      //   }
+      // });
         // end check password
 
         // ajax delete data
-     $(document).on('click','.delete-data',function(event){
-        var id= $(this).attr('rel');
-        var that = $(this);
-        var name= $(this).attr('data-name');
-         var del = window.confirm('Confirm inactive '+name+'?');
-          if (del === false) {
-            event.preventDefault();
-            return false;
-          }
+     // $(document).on('click','.delete-data',function(event){
+     //    var id= $(this).attr('rel');
+     //    var that = $(this);
+     //    var name= $(this).attr('data-name');
+     //     var del = window.confirm('Confirm inactive '+name+'?');
+     //      if (del === false) {
+     //        event.preventDefault();
+     //        return false;
+     //      }
           
-        $.ajax({
-                  url: '<?php echo base_url("User/delete_data"); ?>',
-                  type: 'POST',
-                  data: { id: id },
-                  success: function (resp) {    
-                    if (resp == 1) {  
-                     table.ajax.reload( null, false );
-                    } 
-                    else { alert('error '+resp);}
-                  },
-                  error: function(e){ alert ("Error " + e); }
-        });
-        event.preventDefault();
+     //    $.ajax({
+     //              url: '<?php echo base_url("User/delete_data"); ?>',
+     //              type: 'POST',
+     //              data: { id: id },
+     //              success: function (resp) {    
+     //                if (resp == 1) {  
+     //                 table.ajax.reload( null, false );
+     //                } 
+     //                else { alert('error '+resp);}
+     //              },
+     //              error: function(e){ alert ("Error " + e); }
+     //    });
+     //    event.preventDefault();
       
-      });
+     //  });
         // end delete data
 
         // ajax modal edit password
-         $(function(){
-              $(document).on('click','.edit-password',function(e){
-                  e.preventDefault();
-                  $("#editPassword").modal('show');
-                  $.post("<?php echo base_url('User/modelEditPassword') ?>",
-                      {id:$(this).attr('data-id')},
-                      function(html){
-                          $("#modelEditPassword").html(html);
-                      }   
-                  );
-              });
-          });
+         // $(function(){
+         //      $(document).on('click','.edit-password',function(e){
+         //          e.preventDefault();
+         //          $("#editPassword").modal('show');
+         //          $.post("<?php echo base_url('User/modelEditPassword') ?>",
+         //              {id:$(this).attr('data-id')},
+         //              function(html){
+         //                  $("#modelEditPassword").html(html);
+         //              }   
+         //          );
+         //      });
+         //  });
   <?php } ?>
 
   <?php if($page_title == "Data SPBU | Pertamina Now"){ ?>
@@ -174,7 +194,7 @@
           "lengthMenu": [10,20, 40, 60],
           "iDisplayLength" :20,
           "scrollX":true,
-          "scrollY":"60vh", //awalnya tidak ada
+          "scrollY":"57vh", //awalnya tidak ada
           "columnDefs": [
             {
               "targets": '_all',
@@ -190,7 +210,7 @@
                     if(res[2] == 'e'){
                       res[2] = 'editable';
                     }
-                    var id = row[0].split("|");
+                    var id = row[8].split("|");
                     return "<div><span type='"+res[0]+"' id='"+id[3]+"' name='"+res[1]+"' class='"+res[2]+"'>"+res[3]+"</span></div>"
               } 
             }
@@ -223,7 +243,7 @@
         if(newValue != oldValue)
         {
           $.ajax({
-            url : '<?php echo base_url('User/update_data') ?>',
+            url : '<?php echo base_url('SPBU/update_data') ?>',
             method : 'post',
             data : 
             {

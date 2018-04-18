@@ -31,7 +31,7 @@
           </thead>
         </table>
         <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#addUser">
-          <i class="fa fa-plus"></i>&nbsp; Add user
+          <i class="fa fa-plus"></i>&nbsp; Add SPBU
         </button>
       </div>
     </div>
@@ -44,79 +44,50 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add user</h4>
+            <h4 class="modal-title">Add SPBU</h4>
         </div>
         <div class="modal-body">
-        <form action="<?=base_url()?>DataUser/create_data" method="POST" enctype="multipart/form-data">
+        <form action="<?=base_url()?>SPBU/create_data" method="POST" enctype="multipart/form-data">
           <div class='form-group'>
-            <label >Username</label>
+            <label >No SPBU</label>
             <p>
-              <input type='text' value='' class='form-control input-sm' name='username' required placeholder='Username'>
+              <input type='text' value='' class='form-control input-sm' name='no_spbu' required placeholder='No SPBU'>
             </p>
           </div>
           <div class='form-group'>
-            <label >Password</label>
+            <label >Name</label>
             <p>
-              <input type='password' id="pass" value='' class='form-control input-sm' name='password' required placeholder='Password'>
-            </p>
-            <p>
-              <input type='password' id="rePass" value='' class='form-control input-sm' name='password1' required placeholder='Confirm Password'>
-              <span class='help-block' style="color:red; display: none;" id="notMatch">* Password does not match the confirm password</span>
-            </p>
-
-          </div>
-          <div class='form-group'>
-            <label>Name</label>
-            <p>
-              <input type='text' value='' class='form-control input-sm' name='nama' required placeholder='Name'>
+              <input type='text'  value='' class='form-control input-sm' name='nama' required placeholder='Name'>
             </p>
           </div>
           <div class='form-group'>
-            <label>No. KTP</label>
+            <label>Address</label>
             <p>
-              <input type='number' value='' class='form-control input-sm' name='ktp' required placeholder='KTP'>
+              <input type='text' value='' class='form-control input-sm' name='alamat' required placeholder='Address'>
             </p>
           </div>
           <div class='form-group'>
-            <label>Gender</label>
+            <label>City</label>
             <p>
-              <select class="form-control input-sm" name="jenis_kelamin">
-                <option value="1">Laki-laki</option>
-                <option value="0">Perempuan</option>
-              </select>
+              <input type='text' value='' class='form-control input-sm' name='kota' required placeholder='City'>
             </p>
           </div>
           <div class='form-group'>
-            <label >Birth date</label>
+            <label>Province</label>
             <p>
-              <input type='date' value='' class='form-control input-sm' name='tanggal_lahir' required placeholder='Birth date'>
+              <input type='text' value='' class='form-control input-sm' name='provinsi' required placeholder='Province'>
             </p>
           </div>
           <div class='form-group'>
-            <label >Birth place</label>
+            <label>Latitude</label>
             <p>
-              <input type='text' value='' class='form-control input-sm' name='tempat_lahir' required placeholder='Birth place'>
+              <input type='text' value='' class='form-control input-sm' name='latitude' required placeholder='Latitude'>
             </p>
           </div>
           <div class='form-group'>
-            <label >Email</label>
+            <label>Longitude</label>
             <p>
-              <input type='email' value='' class='form-control input-sm' name='email' required placeholder='Email'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label >Phone No</label>
-            <p>
-              <input type='text' value='' class='form-control input-sm' name='no_tlp' required placeholder='Phone Number'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label >Rule</label>
-            <p>
-              <select class="form-control input-sm" name="rule">
-                <option value="1">Admin</option>
-                <option value="0">User</option>
-              </select>
+              <input type='text' value='' class='form-control input-sm' name='longitude' required placeholder='Longitude'>
             </p>
           </div>
         </div>

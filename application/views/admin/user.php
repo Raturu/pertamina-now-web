@@ -20,7 +20,6 @@
           <thead>
           <tr>
             <th><div><b>No</b></div></th>
-            <th><div><b>Username</b></div></th>
             <th><div><b>Name</b></div></th>
             <th><div><b>KTP</b></div></th>
             <th><div><b>Gender</b></div></th>
@@ -50,36 +49,19 @@
             <h4 class="modal-title">Add user</h4>
         </div>
         <div class="modal-body">
-        <form action="<?=base_url()?>DataUser/create_data" method="POST" enctype="multipart/form-data">
-          <div class='form-group'>
-            <label >Username</label>
-            <p>
-              <input type='text' value='' class='form-control input-sm' name='username' required placeholder='Username'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label >Password</label>
-            <p>
-              <input type='password' id="pass" value='' class='form-control input-sm' name='password' required placeholder='Password'>
-            </p>
-            <p>
-              <input type='password' id="rePass" value='' class='form-control input-sm' name='password1' required placeholder='Confirm Password'>
-              <span class='help-block' style="color:red; display: none;" id="notMatch">* Password does not match the confirm password</span>
-            </p>
-
-          </div>
+        <form action="<?=base_url()?>User/create_data" method="POST" enctype="multipart/form-data">
           <div class='form-group'>
             <label>Name</label>
             <p>
               <input type='text' value='' class='form-control input-sm' name='nama' required placeholder='Name'>
             </p>
           </div>
-          <div class='form-group'>
+          <!-- <div class='form-group'>
             <label>No. KTP</label>
             <p>
               <input type='number' value='' class='form-control input-sm' name='ktp' required placeholder='KTP'>
             </p>
-          </div>
+          </div> -->
           <div class='form-group'>
             <label>Gender</label>
             <p>
