@@ -281,7 +281,7 @@
           }
           
         $.ajax({
-                  url: '<?php echo base_url("User/delete_data"); ?>',
+                  url: '<?php echo base_url("SPBU/delete_data"); ?>',
                   type: 'POST',
                   data: { id: id },
                   success: function (resp) {    
