@@ -413,8 +413,7 @@
           }
           
         $.ajax({
-                  url: '<?php echo base_url("SPBU/delete_data"); ?>',
-                  url: '<?php echo base_url("SPBU/change_status"); ?>',
+                  url: '<?php echo base_url("BBM/delete_data"); ?>',
                   type: 'POST',
                   data: { id: id, status: status },
                   success: function (resp) {    
