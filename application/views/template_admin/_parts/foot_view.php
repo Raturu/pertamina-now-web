@@ -37,6 +37,7 @@
           "scrollX":true,
           "scrollY":"57vh", //awalnya tidak ada
           "columnDefs": [
+            { "orderable": false, "targets": [0]},
             {
               "targets": '_all',
               render : function(data, type, row, meta) {
@@ -55,7 +56,7 @@
                     if(res[2] == 'e'){
                       res[2] = 'editable';
                     }
-                    var id = row[10].split("|");
+                    var id = row[11].split("|");
                     return "<div><span type='"+res[0]+"' id='"+id[3]+"' name='"+res[1]+"' class='"+res[2]+"'>"+res[3]+"</span></div>"
               } 
             }
@@ -196,6 +197,7 @@
           "scrollX":true,
           "scrollY":"57vh", //awalnya tidak ada
           "columnDefs": [
+            { "orderable": false, "targets": [0]},
             {
               "targets": '_all',
               render : function(data, type, row, meta) {
@@ -210,11 +212,17 @@
                     if(res[2] == 'e'){
                       res[2] = 'editable';
                     }
-                    var id = row[8].split("|");
+                    var id = row[9].split("|");
                     return "<div><span type='"+res[0]+"' id='"+id[3]+"' name='"+res[1]+"' class='"+res[2]+"'>"+res[3]+"</span></div>"
               } 
             }
           ],
+          'fnRowCallback': function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+              if ( aData[8].substr(0,11) == 't|status|0|' )
+              {
+                $(nRow).css('background-color', 'pink');
+              }
+          },
           "sAjaxSource": "<?php echo base_url('SPBU/get_data'); ?>"
         });       
 
@@ -270,20 +278,25 @@
         // end inline editing
 
         // ajax delete data
-     $(document).on('click','.delete-data',function(event){
+     $(document).on('click','.active-data',function(event){
         var id= $(this).attr('rel');
         var that = $(this);
         var name= $(this).attr('data-name');
-         var del = window.confirm('Confirm inactive '+name+'?');
+        var status = $(this).attr('status');
+        if(status == 1){
+          var del = window.confirm('Confirm inactive '+name+'?');
+        }else{
+          var del = window.confirm('Confirm active '+name+'?');
+        }
           if (del === false) {
             event.preventDefault();
             return false;
           }
           
         $.ajax({
-                  url: '<?php echo base_url("User/delete_data"); ?>',
+                  url: '<?php echo base_url("SPBU/change_status"); ?>',
                   type: 'POST',
-                  data: { id: id },
+                  data: { id: id, status: status },
                   success: function (resp) {    
                     if (resp == 1) {  
                      table.ajax.reload( null, false );

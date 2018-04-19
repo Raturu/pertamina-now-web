@@ -27,6 +27,7 @@
             <th><div><b>Province</b></div></th>
             <th><div><b>Latitude</b></div></th>
             <th><div><b>Longitude</b></div></th>
+            <th><div><b>Status</b></div></th>
           </tr>
           </thead>
         </table>
