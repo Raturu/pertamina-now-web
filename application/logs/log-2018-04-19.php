@@ -797,3 +797,400 @@ DEBUG - 2018-04-19 10:55:53 --> UTF-8 Support Enabled
 DEBUG - 2018-04-19 10:55:53 --> Global POST, GET and COOKIE data sanitized
 DEBUG - 2018-04-19 10:55:53 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
 DEBUG - 2018-04-19 10:55:53 --> Total execution time: 0.0849
+DEBUG - 2018-04-19 15:01:35 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:01:35 --> No URI present. Default controller set.
+DEBUG - 2018-04-19 15:01:36 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:01:38 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:01:38 --> Total execution time: 4.4416
+DEBUG - 2018-04-19 15:01:47 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:01:47 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:01:47 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:01:47 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:01:47 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:01:48 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:01:48 --> Total execution time: 0.5207
+DEBUG - 2018-04-19 15:01:50 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:01:50 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:01:50 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:01:51 --> Total execution time: 0.2352
+DEBUG - 2018-04-19 15:01:51 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:01:51 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:01:52 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:01:52 --> Total execution time: 0.3858
+DEBUG - 2018-04-19 15:03:55 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:03:56 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:03:56 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:03:56 --> Total execution time: 0.1291
+DEBUG - 2018-04-19 15:03:56 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:03:56 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:03:56 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:03:56 --> Total execution time: 0.1348
+DEBUG - 2018-04-19 15:36:32 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:36:32 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:36:32 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:36:32 --> Total execution time: 0.4178
+DEBUG - 2018-04-19 15:36:33 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:36:33 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:36:33 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:36:33 --> Total execution time: 0.2037
+DEBUG - 2018-04-19 15:38:46 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:38:46 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:38:46 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:38:46 --> Total execution time: 0.1653
+DEBUG - 2018-04-19 15:38:46 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:38:46 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:38:46 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:38:46 --> Total execution time: 0.1290
+DEBUG - 2018-04-19 15:38:59 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:38:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:38:59 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:38:59 --> Total execution time: 0.1049
+DEBUG - 2018-04-19 15:39:00 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:39:00 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:39:00 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:39:00 --> Total execution time: 0.1063
+DEBUG - 2018-04-19 15:42:12 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:42:12 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:42:12 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:42:12 --> Total execution time: 0.1605
+DEBUG - 2018-04-19 15:42:12 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:42:12 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:42:12 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:42:12 --> Total execution time: 0.1003
+DEBUG - 2018-04-19 15:42:36 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:42:36 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:42:36 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:42:36 --> Total execution time: 0.0972
+DEBUG - 2018-04-19 15:42:37 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:42:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:42:37 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:42:37 --> Total execution time: 0.1193
+DEBUG - 2018-04-19 15:43:09 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:43:09 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:43:09 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:43:09 --> Total execution time: 0.1124
+DEBUG - 2018-04-19 15:43:10 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:43:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:43:10 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:43:10 --> Total execution time: 0.1231
+DEBUG - 2018-04-19 15:43:56 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:43:56 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:43:56 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:43:56 --> Total execution time: 0.1275
+DEBUG - 2018-04-19 15:43:57 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:43:57 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:43:57 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:43:57 --> Total execution time: 0.1695
+DEBUG - 2018-04-19 15:45:53 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:45:53 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:45:53 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:45:53 --> Total execution time: 0.0895
+DEBUG - 2018-04-19 15:45:54 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:45:54 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:45:54 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:45:54 --> Total execution time: 0.1040
+DEBUG - 2018-04-19 15:45:56 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:45:57 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:45:57 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:45:57 --> Total execution time: 0.0881
+DEBUG - 2018-04-19 15:45:57 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:45:57 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:45:57 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:45:57 --> Total execution time: 0.1206
+DEBUG - 2018-04-19 15:45:58 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:45:58 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:45:58 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:45:58 --> Total execution time: 0.0783
+DEBUG - 2018-04-19 15:46:14 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:14 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:14 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:14 --> Total execution time: 0.0934
+DEBUG - 2018-04-19 15:46:14 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:14 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:14 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:14 --> Total execution time: 0.1148
+DEBUG - 2018-04-19 15:46:23 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:23 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+ERROR - 2018-04-19 15:46:23 --> Query error: Unknown column 'jenis' in 'field list' - Invalid query: UPDATE `spbu` SET `jenis` = 'Pertamax 123'
+WHERE `id` = '2'
+DEBUG - 2018-04-19 15:46:23 --> Total execution time: 0.1357
+DEBUG - 2018-04-19 15:46:24 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:24 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:24 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:24 --> Total execution time: 0.0926
+DEBUG - 2018-04-19 15:46:25 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:25 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:25 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:25 --> Total execution time: 0.1182
+DEBUG - 2018-04-19 15:46:43 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:43 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:43 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:43 --> Total execution time: 0.1006
+DEBUG - 2018-04-19 15:46:43 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:43 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:43 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:43 --> Total execution time: 0.1182
+DEBUG - 2018-04-19 15:46:47 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:47 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:47 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:47 --> Total execution time: 0.0938
+DEBUG - 2018-04-19 15:46:47 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:47 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:47 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:47 --> Total execution time: 0.1240
+DEBUG - 2018-04-19 15:46:49 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:49 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:49 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:49 --> Total execution time: 0.1089
+DEBUG - 2018-04-19 15:46:49 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:49 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:49 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:49 --> Total execution time: 0.1201
+DEBUG - 2018-04-19 15:46:51 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:51 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:52 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:52 --> Total execution time: 0.1014
+DEBUG - 2018-04-19 15:46:52 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:52 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:52 --> Total execution time: 0.1414
+DEBUG - 2018-04-19 15:46:54 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:54 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:54 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+ERROR - 2018-04-19 15:46:54 --> Query error: Unknown column 'jenis' in 'field list' - Invalid query: UPDATE `spbu` SET `jenis` = 'Pertamax 123'
+WHERE `id` = '2'
+DEBUG - 2018-04-19 15:46:54 --> Total execution time: 0.1045
+DEBUG - 2018-04-19 15:46:55 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:55 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:55 --> Total execution time: 0.0851
+DEBUG - 2018-04-19 15:46:55 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:46:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:46:55 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:46:55 --> Total execution time: 0.1129
+DEBUG - 2018-04-19 15:47:08 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:47:08 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:47:08 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:47:08 --> Total execution time: 0.1106
+DEBUG - 2018-04-19 15:47:08 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:47:08 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:47:08 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:47:08 --> Total execution time: 0.1392
+DEBUG - 2018-04-19 15:47:10 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:47:11 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:47:11 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:47:11 --> Total execution time: 0.1875
+DEBUG - 2018-04-19 15:47:11 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:47:11 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:47:11 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:47:11 --> Total execution time: 0.0912
+DEBUG - 2018-04-19 15:47:11 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:47:11 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:47:12 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:47:12 --> Total execution time: 0.1084
+DEBUG - 2018-04-19 15:47:23 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:47:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:47:23 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:47:23 --> Total execution time: 0.1743
+DEBUG - 2018-04-19 15:47:30 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:47:30 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:47:30 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:47:30 --> Total execution time: 0.1118
+DEBUG - 2018-04-19 15:47:31 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:47:31 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:47:31 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:47:31 --> Total execution time: 0.1434
+DEBUG - 2018-04-19 15:51:02 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:51:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:51:03 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:51:03 --> Total execution time: 0.1540
+DEBUG - 2018-04-19 15:51:03 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:51:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:51:03 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:51:03 --> Total execution time: 0.1462
+DEBUG - 2018-04-19 15:51:18 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:51:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:51:18 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:51:18 --> Total execution time: 0.1145
+DEBUG - 2018-04-19 15:51:18 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:51:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:51:18 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:51:18 --> Total execution time: 0.1492
+DEBUG - 2018-04-19 15:51:45 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:51:45 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:51:45 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+ERROR - 2018-04-19 15:51:45 --> Severity: Notice --> Undefined variable: data C:\xampp\htdocs\pertamina_now\application\models\MBbm.php 7
+DEBUG - 2018-04-19 15:51:45 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:51:46 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:51:46 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:51:46 --> Total execution time: 0.0869
+DEBUG - 2018-04-19 15:51:46 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:51:46 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:51:46 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:51:46 --> Total execution time: 0.1206
+DEBUG - 2018-04-19 15:52:03 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:52:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:52:04 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:52:04 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:52:04 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:52:04 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:52:04 --> Total execution time: 0.0918
+DEBUG - 2018-04-19 15:52:04 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:52:04 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:52:04 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:52:04 --> Total execution time: 0.1068
+DEBUG - 2018-04-19 15:52:09 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:52:09 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:52:10 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:52:10 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:52:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:52:10 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:52:10 --> Total execution time: 0.1121
+DEBUG - 2018-04-19 15:52:10 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:52:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:52:10 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:52:10 --> Total execution time: 0.1161
+DEBUG - 2018-04-19 15:52:30 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 15:52:30 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 15:52:30 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 15:52:30 --> Total execution time: 0.1931
+DEBUG - 2018-04-19 16:02:21 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:02:21 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:02:22 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:02:22 --> Total execution time: 1.3359
+DEBUG - 2018-04-19 16:02:22 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:02:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:02:22 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:02:23 --> Total execution time: 0.1909
+DEBUG - 2018-04-19 16:02:59 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:02:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:03:00 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:03:00 --> Total execution time: 0.0828
+DEBUG - 2018-04-19 16:03:00 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:03:00 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:03:00 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:03:00 --> Total execution time: 0.1232
+DEBUG - 2018-04-19 16:03:01 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:03:01 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:03:02 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:03:02 --> Total execution time: 0.3864
+DEBUG - 2018-04-19 16:03:02 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:03:02 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:03:02 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:03:02 --> Total execution time: 0.1148
+DEBUG - 2018-04-19 16:03:04 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:03:04 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:03:04 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:03:04 --> Total execution time: 0.2517
+DEBUG - 2018-04-19 16:03:04 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:03:04 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:03:04 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:03:04 --> Total execution time: 0.1030
+DEBUG - 2018-04-19 16:04:34 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:04:34 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:04:34 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:04:34 --> Total execution time: 0.1673
+DEBUG - 2018-04-19 16:04:37 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:04:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:04:37 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:04:37 --> Total execution time: 0.0910
+DEBUG - 2018-04-19 16:04:38 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:04:38 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:04:38 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:04:38 --> Total execution time: 0.1345
+DEBUG - 2018-04-19 16:05:53 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:05:53 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:05:53 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:05:54 --> Total execution time: 0.1373
+DEBUG - 2018-04-19 16:05:54 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:05:54 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:05:54 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:05:54 --> Total execution time: 0.1263
+DEBUG - 2018-04-19 16:05:59 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:05:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:05:59 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:05:59 --> Total execution time: 0.1191
+DEBUG - 2018-04-19 16:06:00 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:06:00 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:06:00 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:06:00 --> Total execution time: 0.1367
+DEBUG - 2018-04-19 16:06:10 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:06:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:06:10 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:06:10 --> Total execution time: 0.0998
+DEBUG - 2018-04-19 16:06:11 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:06:11 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:06:11 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:06:11 --> Total execution time: 0.1897
+DEBUG - 2018-04-19 16:06:19 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:06:19 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:06:19 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:06:19 --> Total execution time: 0.1127
+DEBUG - 2018-04-19 16:06:20 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:06:20 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:06:20 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:06:20 --> Total execution time: 0.1341
+DEBUG - 2018-04-19 16:06:40 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:06:40 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:06:40 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:06:40 --> Total execution time: 0.1121
+DEBUG - 2018-04-19 16:06:41 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:06:41 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:06:41 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:06:41 --> Total execution time: 0.1798
+DEBUG - 2018-04-19 16:07:08 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:07:08 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:07:08 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:07:08 --> Total execution time: 0.0976
+DEBUG - 2018-04-19 16:07:09 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:07:09 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:07:09 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:07:09 --> Total execution time: 0.1450
+DEBUG - 2018-04-19 16:07:18 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:07:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:07:18 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:07:18 --> Total execution time: 0.0959
+DEBUG - 2018-04-19 16:07:19 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:07:19 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:07:19 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:07:19 --> Total execution time: 0.1367
+DEBUG - 2018-04-19 16:07:40 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:07:40 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:07:40 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:07:40 --> Total execution time: 0.1417
+DEBUG - 2018-04-19 16:07:40 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:07:40 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:07:40 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:07:40 --> Total execution time: 0.1577
+DEBUG - 2018-04-19 16:08:22 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:08:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:08:22 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:08:23 --> Total execution time: 0.1058
+DEBUG - 2018-04-19 16:08:23 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:08:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:08:23 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:08:23 --> Total execution time: 0.1943
+DEBUG - 2018-04-19 16:08:25 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:08:25 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2018-04-19 16:08:25 --> 404 Page Not Found: SPBUBBM/index
+DEBUG - 2018-04-19 16:08:34 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:08:34 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:08:34 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:08:34 --> Total execution time: 0.1005
+DEBUG - 2018-04-19 16:08:34 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:08:34 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:08:34 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:08:34 --> Total execution time: 0.1504
+DEBUG - 2018-04-19 16:08:42 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:08:42 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:08:42 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:08:42 --> Total execution time: 0.1245
+DEBUG - 2018-04-19 16:08:59 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:08:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:08:59 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:08:59 --> Total execution time: 0.1452
+DEBUG - 2018-04-19 16:09:19 --> UTF-8 Support Enabled
+DEBUG - 2018-04-19 16:09:19 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2018-04-19 16:09:19 --> Config file loaded: C:\xampp\htdocs\pertamina_now\application\config/nexmo.php
+DEBUG - 2018-04-19 16:09:19 --> Total execution time: 0.0940
