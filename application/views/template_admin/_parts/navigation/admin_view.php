@@ -65,11 +65,20 @@
             <i class="fa fa-users"></i> <span>User</span>
           </a>
         </li>
-        <li class="<?php if($page_title == 'Data SPBU | Pertamina Now') { echo 'active'; } ?>">
-          <a href="<?php echo base_url('SPBU');?>">
+        <li class="<?php if($page_title == 'Data BBM | Pertamina Now' || $page_title == 'Data SPBU | Pertamina Now' || $page_title == 'Data SPBU BBM | Pertamina Now') { echo 'active'; } ?> treeview menu-open">
+          <a href="#">
             <i class="fa fa-building"></i> <span>SPBU</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li class="<?php if($page_title == 'Data SPBU | Pertamina Now') { echo 'active'; } ?>"><a href="<?php echo base_url('SPBU');?>"><i class="fa fa-circle-o"></i> SPBU</a></li>
+            <li class="<?php if($page_title == 'Data SPBU BBM | Pertamina Now') { echo 'active'; } ?>"><a href="<?php echo base_url('SPBUBBM');?>"><i class="fa fa-circle-o"></i> SPBU BBM</a></li>
+            <li class="<?php if($page_title == 'Data BBM | Pertamina Now') { echo 'active'; } ?>"><a href="<?php echo base_url('BBM');?>"><i class="fa fa-circle-o"></i> BBM</a></li>
+          </ul>
         </li>
+
       </ul>
     </section>
     <!-- /.sidebar ASIDE -->

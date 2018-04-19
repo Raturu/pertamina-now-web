@@ -29,6 +29,7 @@
             <th><div><b>Phone</b></div></th>
             <th><div><b>Poin</b></div></th>
             <th><div><b>Rule</b></div></th>
+            <th><div><b>Transaction</b></div></th>
           </tr>
           </thead>
         </table>

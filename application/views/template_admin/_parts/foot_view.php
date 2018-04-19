@@ -37,6 +37,7 @@
           "scrollX":true,
           "scrollY":"57vh", //awalnya tidak ada
           "columnDefs": [
+            { "orderable": false, "targets": [0]},
             {
               "targets": '_all',
               render : function(data, type, row, meta) {
@@ -55,7 +56,7 @@
                     if(res[2] == 'e'){
                       res[2] = 'editable';
                     }
-                    var id = row[10].split("|");
+                    var id = row[11].split("|");
                     return "<div><span type='"+res[0]+"' id='"+id[3]+"' name='"+res[1]+"' class='"+res[2]+"'>"+res[3]+"</span></div>"
               } 
             }
@@ -196,6 +197,7 @@
           "scrollX":true,
           "scrollY":"57vh", //awalnya tidak ada
           "columnDefs": [
+            { "orderable": false, "targets": [0]},
             {
               "targets": '_all',
               render : function(data, type, row, meta) {
@@ -210,11 +212,17 @@
                     if(res[2] == 'e'){
                       res[2] = 'editable';
                     }
-                    var id = row[8].split("|");
+                    var id = row[9].split("|");
                     return "<div><span type='"+res[0]+"' id='"+id[3]+"' name='"+res[1]+"' class='"+res[2]+"'>"+res[3]+"</span></div>"
               } 
             }
           ],
+          'fnRowCallback': function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+              if ( aData[8].substr(0,11) == 't|status|0|' )
+              {
+                $(nRow).css('background-color', 'pink');
+              }
+          },
           "sAjaxSource": "<?php echo base_url('SPBU/get_data'); ?>"
         });       
 
@@ -270,11 +278,135 @@
         // end inline editing
 
         // ajax delete data
-     $(document).on('click','.delete-data',function(event){
+     $(document).on('click','.active-data',function(event){
         var id= $(this).attr('rel');
         var that = $(this);
         var name= $(this).attr('data-name');
-         var del = window.confirm('Confirm inactive '+name+'?');
+        var status = $(this).attr('status');
+        if(status == 1){
+          var del = window.confirm('Confirm inactive '+name+'?');
+        }else{
+          var del = window.confirm('Confirm active '+name+'?');
+        }
+          if (del === false) {
+            event.preventDefault();
+            return false;
+          }
+          
+        $.ajax({
+                  url: '<?php echo base_url("SPBU/change_status"); ?>',
+                  type: 'POST',
+                  data: { id: id, status: status },
+                  success: function (resp) {    
+                    if (resp == 1) {  
+                     table.ajax.reload( null, false );
+                    } 
+                    else { alert('error '+resp);}
+                  },
+                  error: function(e){ alert ("Error " + e); }
+        });
+        event.preventDefault();
+      
+      });
+        // end delete data
+  <?php } ?>
+
+  <?php if($page_title == "Data BBM | Pertamina Now"){ ?>
+     //get data data user
+        var table = $('.data-spbu').DataTable({
+          "sServerMethod": "POST", 
+          "bProcessing": true,
+          "bServerSide": true,
+          "lengthMenu": [10,20, 40, 60],
+          "iDisplayLength" :20,
+          "scrollX":true,
+          "scrollY":"57vh", //awalnya tidak ada
+          "columnDefs": [
+            { "orderable": false, "targets": [0]},
+            {
+              "targets": '_all',
+              render : function(data, type, row, meta) {
+                    var res = data.split("|");
+                    if(res[0] == 't'){
+                      res[0] = 'text';
+                    }else if(res[0] == 'd'){
+                      res[0] = 'date';
+                    }else if(res[0] == 'e'){
+                      res[0] = 'email';
+                    }
+                    if(res[2] == 'e'){
+                      res[2] = 'editable';
+                    }
+                    var id = row[2].split("|");
+                    return "<div><span type='"+res[0]+"' id='"+id[3]+"' name='"+res[1]+"' class='"+res[2]+"'>"+res[3]+"</span></div>"
+              } 
+            }
+          ],
+          "sAjaxSource": "<?php echo base_url('BBM/get_data'); ?>"
+        });       
+
+        // Inline editing
+      var oldValue = null;
+      $(document).on('dblclick', '.editable', function(){
+        oldValue = $(this).html();
+
+        $(this).removeClass('editable');  // to stop from making repeated request
+        if($(this).attr('type') == "text"){
+          $(this).html('<input type="text" style="width:90px; height:20px;" class="update" value="'+ oldValue +'" />');
+        }else if($(this).attr('type') == "date"){
+          $(this).html('<input type="date" style="width:90px;" class="update" value="'+ oldValue +'" />');
+        }else if($(this).attr('type') == "email"){
+          $(this).html('<input type="email" style="width:90px;" class="update" value="'+ oldValue +'" />');
+        }
+        $(this).find('.update').focus();
+      });
+
+      var newValue = null;
+      $(document).on('blur', '.update', function(){
+        var elem    = $(this);
+        newValue  = $(this).val();
+        var id  = $(this).parent().attr('id');
+        var colName = $(this).parent().attr('name');
+        if(newValue != oldValue)
+        {
+          $.ajax({
+            url : '<?php echo base_url('BBM/update_data') ?>',
+            method : 'post',
+            data : 
+            {
+              id    : id,
+              colName  : colName,
+              newValue : newValue,
+            },
+            success : function(respone)
+            {
+              if(colName == 'id_group'){
+                table.ajax.reload( null, false );
+              }
+              $(elem).parent().addClass('editable');
+              $(elem).parent().html(newValue);
+            }
+          });
+        }
+        else
+        {
+          $(elem).parent().addClass('editable');
+          $(this).parent().html(newValue);
+        }
+      });
+        // end inline editing
+
+        // ajax delete data
+     $(document).on('click','.active-data',function(event){
+        var id= $(this).attr('rel');
+        var that = $(this);
+        var name= $(this).attr('data-name');
+        var status = $(this).attr('status');
+        if(status == 1){
+          var del = window.confirm('Confirm inactive '+name+'?');
+        }else{
+          var del = window.confirm('Confirm active '+name+'?');
+        }
           if (del === false) {
             event.preventDefault();
             return false;
@@ -282,8 +414,9 @@
           
         $.ajax({
                   url: '<?php echo base_url("SPBU/delete_data"); ?>',
+                  url: '<?php echo base_url("SPBU/change_status"); ?>',
                   type: 'POST',
-                  data: { id: id },
+                  data: { id: id, status: status },
                   success: function (resp) {    
                     if (resp == 1) {  
                      table.ajax.reload( null, false );

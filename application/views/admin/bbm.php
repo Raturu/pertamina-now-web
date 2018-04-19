@@ -14,25 +14,18 @@
     <?php } ?>
     <!-- Default box -->
     <div class="row">
-      <p style="font-size: 24px; font-weight: 100; color:#dd4b39; margin-left: 1%; margin-top: -0.3%;">Data SPBU</p>
+      <p style="font-size: 24px; font-weight: 100; color:#dd4b39; margin-left: 1%; margin-top: -0.3%;">Data BBM</p>
       <div class="col-md-12">
         <table class="table table-bordered table-hover data-spbu" style="white-space: nowrap;">
           <thead>
           <tr>
             <th><div><b>No</b></div></th>
-            <th><div><b>No SPBU</b></div></th>
             <th><div><b>Name</b></div></th>
-            <th><div><b>Address</b></div></th>
-            <th><div><b>City</b></div></th>
-            <th><div><b>Province</b></div></th>
-            <th><div><b>Latitude</b></div></th>
-            <th><div><b>Longitude</b></div></th>
-            <th><div><b>Status</b></div></th>
           </tr>
           </thead>
         </table>
         <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#addUser">
-          <i class="fa fa-plus"></i>&nbsp; Add SPBU
+          <i class="fa fa-plus"></i>&nbsp; Add BBM
         </button>
       </div>
     </div>
@@ -45,50 +38,14 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add SPBU</h4>
+            <h4 class="modal-title">Add BBM</h4>
         </div>
         <div class="modal-body">
-        <form action="<?=base_url()?>SPBU/create_data" method="POST" enctype="multipart/form-data">
+        <form action="<?=base_url()?>BBM/create_data" method="POST" enctype="multipart/form-data">
           <div class='form-group'>
-            <label >No SPBU</label>
+            <label>Name</label>
             <p>
-              <input type='text' value='' class='form-control input-sm' name='no_spbu' required placeholder='No SPBU'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label >Name</label>
-            <p>
-              <input type='text'  value='' class='form-control input-sm' name='nama' required placeholder='Name'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label>Address</label>
-            <p>
-              <input type='text' value='' class='form-control input-sm' name='alamat' required placeholder='Address'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label>City</label>
-            <p>
-              <input type='text' value='' class='form-control input-sm' name='kota' required placeholder='City'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label>Province</label>
-            <p>
-              <input type='text' value='' class='form-control input-sm' name='provinsi' required placeholder='Province'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label>Latitude</label>
-            <p>
-              <input type='text' value='' class='form-control input-sm' name='latitude' required placeholder='Latitude'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label>Longitude</label>
-            <p>
-              <input type='text' value='' class='form-control input-sm' name='longitude' required placeholder='Longitude'>
+              <input type='text' value='' class='form-control input-sm' name='jenis' required placeholder='Name'>
             </p>
           </div>
         </div>

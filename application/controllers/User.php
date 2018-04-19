@@ -26,7 +26,7 @@ class User extends Admin_Controller {
 
     $col = $_REQUEST['iSortCol_0'];
 
-    $arr = array(0 => 'id', 1 => 'nama', 2=> 'ktp', 3=> 'jenis_kelamin', 4=> 'tanggal_lahir', 5=> 'tempat_lahir', 6=> 'email', 7 => 'no_tlp', 8 => 'poin', 9=> 'rule');
+    $arr = array(0 => 'id', 1 => 'nama', 2=> 'ktp', 3=> 'jenis_kelamin', 4=> 'tanggal_lahir', 5=> 'tempat_lahir', 6=> 'email', 7 => 'no_tlp', 8 => 'poin', 9=> 'rule', 10=> 'status_transaksi');
 
     $sort_by = $arr[$col];
     $sort_type = $_REQUEST['sSortDir_0'];
@@ -59,16 +59,9 @@ class User extends Admin_Controller {
           if($value->tempat_lahir == ''){$tempat_lahir = '-';}else{$tempat_lahir = $value->tempat_lahir;}
           if($value->email == ''){$email = '-';}else{$email = $value->email;}
           if($value->no_tlp == ''){$no_tlp = '-';}else{$no_tlp = $value->no_tlp;}
-          if($value->rule == '1'){
-            $rule = 'Admin';
-          }else{
-            $rule = 'User';
-          }
-          if ($value->jenis_kelamin == '1') {
-            $jk = 'Laki-laki';
-          }else{
-            $jk = 'Perempuan';
-          }
+          if($value->rule == '1'){$rule = 'Admin';}else{$rule = 'User';}
+          if($value->jenis_kelamin == '1') {$jk = 'Laki-laki';}else{$jk = 'Perempuan';}
+          if($value->status_transaksi == '1'){$status_transaksi = 'In transaction';}else{$status_transaksi = 'Not in transaction';}
             $rec['aaData'][$k] = array(
                 0 => 't|id||'.$i++,
                 1 => 't|nama|e|'.$nama,
@@ -80,7 +73,8 @@ class User extends Admin_Controller {
                 7 => 't|no_tlp|e|'.$no_tlp,
                 8 => 't|poin||'.$value->poin,
                 9 => 'sr|rule||'.$rule,
-                10 => 't|id||'.$value->id,
+                10 => 'sr|rule||'.$status_transaksi,
+                11 => 't|id||'.$value->id
             );
             $k++;
             $start++;
