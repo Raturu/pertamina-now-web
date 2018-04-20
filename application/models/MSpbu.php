@@ -4,11 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	class MSpbu extends CI_Model {
 
 		public function getAllPromoAktif(){
-			return $this->db->query("SELECT *, k.nama as nama_kategori, k.id as id_kategori from spbu s, promo p, kategori_promo k where s.id=p.id_spbu and s.status=1 and p.id_kategori_promo=k.id and waktu_mulai <= now() and waktu_selesai >= now()");
+			return $this->db->query("SELECT *, k.nama as nama_kategori, k.id as id_kategori, p.id as id_promo from spbu s, promo p, kategori_promo k where s.id=p.id_spbu and s.status=1 and p.id_kategori_promo=k.id and waktu_mulai <= now() and waktu_selesai >= now()");
 		}
 
 		public function getAllPromoAktifByIdKategori($id_kategori){
-			return $this->db->query("SELECT *, k.nama as nama_kategori, k.id as id_kategori from spbu s, promo p, kategori_promo k where s.id=p.id_spbu and p.id_kategori_promo=k.id and waktu_mulai <= now() and waktu_selesai >= now() and p.id_kategori_promo = '$id_kategori' and s.status = 1");
+			return $this->db->query("SELECT *, k.nama as nama_kategori, k.id as id_kategori, p.id as id_promo from spbu s, promo p, kategori_promo k where s.id=p.id_spbu and p.id_kategori_promo=k.id and waktu_mulai <= now() and waktu_selesai >= now() and p.id_kategori_promo = '$id_kategori' and s.status = 1");
 		}
 
 		public function getKategori(){
