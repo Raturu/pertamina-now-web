@@ -471,6 +471,7 @@ class Collection extends REST_Controller {
           }
           $temp = array(
             'id_transaksi' => $value->id_transaksi,
+            'id_spbu' => $value->id_spbu,
             'jenis_bbm' => $value->jenis,
             'waktu_transaksi' => $value->waktu_transaksi,
             'total_pembelian' => $value->total_pembelian,
