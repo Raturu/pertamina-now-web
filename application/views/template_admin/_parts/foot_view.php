@@ -397,36 +397,36 @@
         // end inline editing
 
         // ajax delete data
-     $(document).on('click','.active-data',function(event){
-        var id= $(this).attr('rel');
-        var that = $(this);
-        var name= $(this).attr('data-name');
-        var status = $(this).attr('status');
-        if(status == 1){
-          var del = window.confirm('Confirm inactive '+name+'?');
-        }else{
-          var del = window.confirm('Confirm active '+name+'?');
-        }
-          if (del === false) {
-            event.preventDefault();
-            return false;
-          }
+     // $(document).on('click','.active-data',function(event){
+     //    var id= $(this).attr('rel');
+     //    var that = $(this);
+     //    var name= $(this).attr('data-name');
+     //    var status = $(this).attr('status');
+     //    if(status == 1){
+     //      var del = window.confirm('Confirm inactive '+name+'?');
+     //    }else{
+     //      var del = window.confirm('Confirm active '+name+'?');
+     //    }
+     //      if (del === false) {
+     //        event.preventDefault();
+     //        return false;
+     //      }
           
-        $.ajax({
-                  url: '<?php echo base_url("BBM/delete_data"); ?>',
-                  type: 'POST',
-                  data: { id: id, status: status },
-                  success: function (resp) {    
-                    if (resp == 1) {  
-                     table.ajax.reload( null, false );
-                    } 
-                    else { alert('error '+resp);}
-                  },
-                  error: function(e){ alert ("Error " + e); }
-        });
-        event.preventDefault();
+     //    $.ajax({
+     //              url: '<?php echo base_url("BBM/delete_data"); ?>',
+     //              type: 'POST',
+     //              data: { id: id, status: status },
+     //              success: function (resp) {    
+     //                if (resp == 1) {  
+     //                 table.ajax.reload( null, false );
+     //                } 
+     //                else { alert('error '+resp);}
+     //              },
+     //              error: function(e){ alert ("Error " + e); }
+     //    });
+     //    event.preventDefault();
       
-      });
+     //  });
         // end delete data
   <?php } ?>
 
@@ -461,6 +461,12 @@
               } 
             }
           ],
+          'fnRowCallback': function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+              if ( aData[7].substr(0,11) == 't|status|0|' )
+              {
+                $(nRow).css('background-color', 'pink');
+              }
+          },
           "sAjaxSource": "<?php echo base_url('SPBUBBM/get_data'); ?>"
         });       
 
@@ -515,7 +521,7 @@
       });
         // end inline editing
 
-        // ajax delete data
+         // ajax delete data
      $(document).on('click','.active-data',function(event){
         var id= $(this).attr('rel');
         var that = $(this);
@@ -532,7 +538,7 @@
           }
           
         $.ajax({
-                  url: '<?php echo base_url("BBM/delete_data"); ?>',
+                  url: '<?php echo base_url("SPBUBBM/change_status"); ?>',
                   type: 'POST',
                   data: { id: id, status: status },
                   success: function (resp) {    
@@ -547,5 +553,26 @@
       
       });
         // end delete data
+
+        // select spbu
+      $("#id_spbu").change(function(){
+        var id_spbu = $("#id_spbu").val();
+        $.ajax({
+            url : '<?php echo base_url('SPBUBBM/selectSPBU') ?>',
+            method : 'post',
+            data : 
+            {
+              id_spbu    : id_spbu
+            },
+            success : function(respone)
+            {
+              var obj = JSON.parse(respone);
+              $('#id_bbm').find('option').remove().end().append("<option value=''>--Choose--</option>");
+              for(var i=0; i<obj.length; i++){
+                $("#id_bbm").append("<option value='" + obj[i].id  + "'>" +obj[i].jenis+ "</option>");
+              }
+            }
+        });
+      });
   <?php } ?>
 </script>

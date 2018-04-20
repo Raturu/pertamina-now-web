@@ -31,7 +31,7 @@
           </thead>
         </table>
         <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#addUser">
-          <i class="fa fa-plus"></i>&nbsp; Add SPBU
+          <i class="fa fa-plus"></i>&nbsp; Add SPBU BBM
         </button>
       </div>
     </div>
@@ -47,47 +47,48 @@
             <h4 class="modal-title">Add SPBU BBM</h4>
         </div>
         <div class="modal-body">
-        <form action="<?=base_url()?>SPBU/create_data" method="POST" enctype="multipart/form-data">
+        <form action="<?=base_url()?>SPBUBBM/create_data" method="POST" enctype="multipart/form-data">
           <div class='form-group'>
             <label >No SPBU</label>
             <p>
-              <input type='text' value='' class='form-control input-sm' name='no_spbu' required placeholder='No SPBU'>
+              <select class='form-control input-sm' name='id_spbu' id='id_spbu' required>
+                <option value="">--Choose-- </option>
+                <?php foreach ($spbu->result() as $value) { ?>
+                  <option value="<?php echo $value->id; ?>"><?php echo $value->nama; ?></option>
+                <?php } ?>
+              </select>
             </p>
           </div>
           <div class='form-group'>
-            <label >Name</label>
+            <label >BBM Name</label>
             <p>
-              <input type='text'  value='' class='form-control input-sm' name='nama' required placeholder='Name'>
+              <select class='form-control input-sm' name='id_bbm' id='id_bbm' required>
+                <option value="">--Choose-- </option>
+              </select>
             </p>
           </div>
           <div class='form-group'>
-            <label>Address</label>
+            <label>Level</label>
             <p>
-              <input type='text' value='' class='form-control input-sm' name='alamat' required placeholder='Address'>
+              <input type='number' value='' class='form-control input-sm' name='level' required placeholder='Level'>
             </p>
           </div>
           <div class='form-group'>
-            <label>City</label>
+            <label>Max Tank</label>
             <p>
-              <input type='text' value='' class='form-control input-sm' name='kota' required placeholder='City'>
+              <input type='number' value='' class='form-control input-sm' name='max_tank' required placeholder='Max Tank'>
             </p>
           </div>
           <div class='form-group'>
-            <label>Province</label>
+            <label>Min Tank</label>
             <p>
-              <input type='text' value='' class='form-control input-sm' name='provinsi' required placeholder='Province'>
+              <input type='number' value='' class='form-control input-sm' name='min_tank' required placeholder='Min Tank'>
             </p>
           </div>
           <div class='form-group'>
-            <label>Latitude</label>
+            <label>Price</label>
             <p>
-              <input type='text' value='' class='form-control input-sm' name='latitude' required placeholder='Latitude'>
-            </p>
-          </div>
-          <div class='form-group'>
-            <label>Longitude</label>
-            <p>
-              <input type='text' value='' class='form-control input-sm' name='longitude' required placeholder='Longitude'>
+              <input type='number' value='' class='form-control input-sm' name='harga' required placeholder='Price'>
             </p>
           </div>
         </div>

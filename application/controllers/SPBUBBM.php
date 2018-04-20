@@ -14,7 +14,6 @@ class SPBUBBM extends Admin_Controller {
   public function index() {
     $this->data['current_page'] = $this->uri->uri_string();
     $this->data['spbu'] = $this->MSpbubbm->getSpbu();
-    $this->data['bbm'] = $this->MSpbubbm->getBbm();
     $this->content = 'admin/spbubbm';     
     $this->navigation = 'template_admin/_parts/navigation/admin_view'; 
     // passing middle to function. change this for different views.
@@ -57,6 +56,7 @@ class SPBUBBM extends Admin_Controller {
     if($res->num_rows() != null){
         foreach ($res->result() as $value) {
             $iterasi = 0;
+            if($value->status == 1){$status = '<button class="btn btn-success btn-xs active-data"style="height:20px;" status="'.$value->status.'" rel="'.$value->id.'" data-name="'.$value->nama_spbu." ".$value->nama_bbm.'">Active</button>';}else{$status = '<button class="btn btn-danger btn-xs active-data"style="height:20px;" status="'.$value->status.'" rel="'.$value->id.'" data-name="'.$value->nama_spbu." ".$value->nama_bbm.'">Inactive</button>';}
             $rec['aaData'][$k] = array(
                 $iterasi => 't|no||'.$i++,
                 $iterasi+=1 => 't|nama_spbu||'.$value->nama_spbu,
@@ -65,8 +65,8 @@ class SPBUBBM extends Admin_Controller {
                 $iterasi+=1 => 't|max_tank|e|'.$value->max_tank,
                 $iterasi+=1 => 't|min_tank|e|'.$value->min_tank,
                 $iterasi+=1 => 't|harga|e|'.$value->harga,
-                $iterasi+=1 => 't|status||'.$value->status,
-                $iterasi+=1 => 't|status||'.$value->id
+                $iterasi+=1 => 't|status|'.$value->status.'|'.$status,
+                $iterasi+=1 => 't|id||'.$value->id
             );
             $k++;
             $start++;
@@ -102,13 +102,38 @@ class SPBUBBM extends Admin_Controller {
   }
 
   function create_data(){
-    $data = array(
-        'jenis' => $this->input->post('jenis')
+      $data = array(
+        'id_spbu' => $this->input->post('id_spbu'),
+        'id_bbm' => $this->input->post('id_bbm'),
+        'level' => $this->input->post('level'),
+        'max_tank' => $this->input->post('max_tank'),
+        'min_tank' => $this->input->post('min_tank'),       
+        'harga' => $this->input->post('harga')       
       );
-      $id_user = $this->MSpbubbm->create_data($data);
+      $this->MSpbubbm->create_data($data);
       $this->session->set_flashdata('sukses',true);
-      $this->session->set_flashdata('pesanSukses','<h4><i class="fa fa-check"></i> Success !</h4><p>BBM has been entered to the database successfully.</p>');
-      redirect('BBM','refresh');
+      $this->session->set_flashdata('pesanSukses','<h4><i class="fa fa-check"></i> Success !</h4><p>SPBU BBM has been entered to the database successfully.</p>');
+      redirect('SPBUBBM','refresh');
+  }
+
+  function selectSPBU(){
+    echo json_encode($this->MSpbubbm->getBbmNotInSpbu($this->input->post('id_spbu'))->result());
+  }
+
+  function change_status(){
+    $id = $this->input->post('id');
+    if($this->input->post('status') == 1){
+        $status = 0;
+    }else{
+        $status = 1;
+    }
+    $res = $this->MSpbubbm->change_status($id,$status);
+
+    if ($res !== false){
+        echo 1;
+    }else{ 
+        echo $res;
+    }
   }
   
 }
