@@ -436,6 +436,7 @@ class Collection extends REST_Controller {
             'judul' => $value->judul,
             'deskripsi' => $value->deskripsi,
             'gambar' => base_url().'assets/dist/img/promo/'.$value->gambar,
+            'id_kategori' => $value->id_kategori,
             'kategori' => $value->nama_kategori
           );
           array_push($result, $temp);

@@ -16,7 +16,7 @@
     <div class="row">
       <p style="font-size: 24px; font-weight: 100; color:#dd4b39; margin-left: 1%; margin-top: -0.3%;">Data SPBU BBM</p>
       <div class="col-md-12">
-        <table class="table table-bordered table-hover data-spbu" style="white-space: nowrap;">
+        <table class="table table-bordered table-hover data-spbu-bbm" style="white-space: nowrap;">
           <thead>
           <tr>
             <th><div><b>No</b></div></th>

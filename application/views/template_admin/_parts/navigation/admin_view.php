@@ -78,7 +78,18 @@
             <li class="<?php if($page_title == 'Data BBM | Pertamina Now') { echo 'active'; } ?>"><a href="<?php echo base_url('BBM');?>"><i class="fa fa-circle-o"></i> BBM</a></li>
           </ul>
         </li>
-
+        <li class="<?php if($page_title == 'Data Promo | Pertamina Now' || $page_title == 'Data Category Promo | Pertamina Now') { echo 'active'; } ?> treeview menu-open">
+          <a href="#">
+            <i class="fa fa-ticket"></i> <span>Promo</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="<?php if($page_title == 'Data Promo | Pertamina Now') { echo 'active'; } ?>"><a href="<?php echo base_url('Promo');?>"><i class="fa fa-circle-o"></i> Promo</a></li>
+            <li class="<?php if($page_title == 'Data Category Promo | Pertamina Now') { echo 'active'; } ?>"><a href="<?php echo base_url('CategoryPromo');?>"><i class="fa fa-circle-o"></i> Category</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar ASIDE -->

@@ -90,7 +90,7 @@ class SPBUBBM extends Admin_Controller {
             $colName => $newValue,
         );
         $this->db->where('id', $userId);
-        if($this->db->update('bbm',$data))
+        if($this->db->update('spbu_bbm',$data))
         {   
             echo 1;
         }
