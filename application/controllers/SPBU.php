@@ -55,7 +55,7 @@ class SPBU extends Admin_Controller {
     if($res->num_rows() != null){
         foreach ($res->result() as $value) {
             $iterasi = 0;
-            if($value->status == 1){$status = '<button class="btn btn-success btn-xs active-data"style="height:20px;" status="'.$value->status.'" rel="'.$value->id.'" data-name="'.$value->nama.'"><i class="fa fa-check"></i></button>';}else{$status = '<button class="btn btn-danger btn-xs active-data"style="height:20px;" status="'.$value->status.'" rel="'.$value->id.'" data-name="'.$value->nama.'"><i class="fa fa-times"></i></button>';}
+            if($value->status == 1){$status = '<button class="btn btn-success btn-xs active-data"style="height:20px;" status="'.$value->status.'" rel="'.$value->id.'" data-name="'.$value->nama.'">Active</button>';}else{$status = '<button class="btn btn-danger btn-xs active-data"style="height:20px;" status="'.$value->status.'" rel="'.$value->id.'" data-name="'.$value->nama.'">Inactive</button>';}
             $rec['aaData'][$k] = array(
                 $iterasi => 't|no||'.$i++,
                 $iterasi+=1 => 't|no_spbu|e|'.$value->no_spbu,
