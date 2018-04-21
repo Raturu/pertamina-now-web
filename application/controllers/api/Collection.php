@@ -225,6 +225,7 @@ class Collection extends REST_Controller {
             'rule' => 0
           );
         $id_user = $this->MDataUser->create_data($data);
+        $this->MDataUser->updateCRC32($id_user);
         if(is_array($id_user) == false){
           //$response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
         //$response['status'] == 0

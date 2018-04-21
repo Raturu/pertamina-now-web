@@ -82,6 +82,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $this->db->get("user");
 		}
 
+		public function updateCRC32($id_user){
+			$data = array(
+				'crc32' => dechex(crc32($id_user))
+			);
+			$this->db->where('id',$id_user);
+			$this->db->update('user',$data);
+		}
+
 		public function editPassword($id,$password){
 			$sql = "UPDATE user set password = ? WHERE id = ?";
 			$this->db->query($sql, array(md5("$password"),$id));
