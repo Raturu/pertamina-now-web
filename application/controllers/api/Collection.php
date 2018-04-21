@@ -317,6 +317,37 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function codeCRC32_get(){
+      $data = getallheaders();
+      $this->response(
+            [
+              "status" => true,
+              "code" => crc32($data['x-api-key'])
+            ],
+            REST_Controller::HTTP_OK);
+    }
+
+    public function verifyCRC32_post(){
+      $data = $this->MDataUser->getDataByCRC32($this->input->post('crc32'));
+      if($data->num_rows() != null){
+        foreach ($data->result() as $value) {
+          $id_user = $value->id;
+        }
+        $this->MDataUser->inputKTP($id_user, $this->input->post('uid'));
+        $this->response(
+            [
+              "status"=> "OK"
+            ],
+            REST_Controller::HTTP_OK);
+      }else{
+        $this->response(
+            [
+              "status"=> "ERROR"
+            ],
+            REST_Controller::HTTP_OK);
+      }
+    }
+
     public function inputKTP_post(){
       $this->checkExpiredKey();
       $id_user = $this->getIdFromKey();
