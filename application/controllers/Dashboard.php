@@ -24,4 +24,7 @@ class Dashboard extends Admin_Controller {
     return date("t", mktime (0,0,0,$month,1,$year));
   }
   
+  public function getIntransaction(){
+    echo $this->MDashboard->getUserInTransaction()->num_rows();
+  }
 }
