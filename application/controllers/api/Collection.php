@@ -353,12 +353,10 @@ class Collection extends REST_Controller {
         }
         $this->response($result, REST_Controller::HTTP_OK);
       }else{
+        $temp = array();
         $this->response(
-            [
-              "status" => false,
-              "error" => "No category promo"
-            ],
-            REST_Controller::HTTP_NOT_FOUND);
+            $temp,
+            REST_Controller::HTTP_OK);
       }
     }
 
@@ -455,12 +453,10 @@ class Collection extends REST_Controller {
         }
         $this->response($result, REST_Controller::HTTP_OK);
       }else{
+        $temp = array();
         $this->response(
-            [
-              "status" => false,
-              "error" => "No promo"
-            ],
-            REST_Controller::HTTP_NOT_FOUND);
+            $temp,
+            REST_Controller::HTTP_OK);
       }
     }
 
@@ -501,12 +497,10 @@ class Collection extends REST_Controller {
         }
         $this->response($result, REST_Controller::HTTP_OK);
       }else{
+        $temp = array();
         $this->response(
-            [
-              "status" => false,
-              "error" => "No transaction"
-            ],
-            REST_Controller::HTTP_NOT_FOUND);
+            $temp,
+            REST_Controller::HTTP_OK);
       }
     }
 
