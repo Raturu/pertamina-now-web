@@ -23,6 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $this->db->get('user');
 		}
 
+		public function updateStatusTransaksi($id_user,$status){
+			$this->db->query("UPDATE user set status_transaksi='$status' where id='$id_user'");
+		}
+
 		public function updateProfil($id_user,$data){
 			$this->db->where('id',$id_user);
 			$this->db->update('user',$data);

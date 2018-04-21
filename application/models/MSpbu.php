@@ -36,4 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->query("UPDATE spbu set status='$status' where id='$id'");
 		}
 
+		public function getPromoByIdSPBU($id_spbu){
+			return $this->db->query("SELECT * from promo where id_spbu = '$id_spbu' and status =1 and waktu_mulai <= now() and now() <= waktu_selesai");
+		}
 	}

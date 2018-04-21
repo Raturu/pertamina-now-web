@@ -7,6 +7,7 @@ class Collection extends REST_Controller {
       $this->load->model("MDataUser");
       $this->load->model("MAuth");
       $this->load->model("MSpbu");
+      $this->load->model("MTransaction");
       $this->load->library('nexmo');
       $this->nexmo->set_format('json');
     }
@@ -231,7 +232,7 @@ class Collection extends REST_Controller {
         //$response['status'] == 0
         $response = 0;
           $key_user = $this->MDataUser->getAPIKeyById($id_user);
-          $this->MDataUser->renewKey($key);
+          $this->MDataUser->renewKey($key_user);
           if($response == 0){
             $this->response(
             [
@@ -319,22 +320,22 @@ class Collection extends REST_Controller {
     }
 
     public function codeCRC32_get(){
-      $data = getallheaders();
+      $id_user = $this->getIdFromKey();
       $this->response(
             [
               "status" => true,
-              "code" => crc32($data['x-api-key'])
+              "code" => dechex(crc32($id_user))
             ],
             REST_Controller::HTTP_OK);
     }
 
     public function verifyCRC32_post(){
-      $data = $this->MDataUser->getDataByCRC32($this->input->post('crc32'));
+      $data = $this->MDataUser->getDataByCRC32($this->post('crc32'));
       if($data->num_rows() != null){
         foreach ($data->result() as $value) {
           $id_user = $value->id;
         }
-        $this->MDataUser->inputKTP($id_user, $this->input->post('uid'));
+        $this->MDataUser->inputKTP($id_user, $this->post('uid'));
         $this->response(
             [
               "status"=> "OK"
@@ -352,22 +353,33 @@ class Collection extends REST_Controller {
     public function inputKTP_post(){
       $this->checkExpiredKey();
       $id_user = $this->getIdFromKey();
-      $data = $this->MDataUser->inputKTP($id_user,$this->post('ktp'));
-      if(is_array($data) == false){
-        $this->response(
-            [
-              "status" => true,
-              "message" => "KTN SN inputed successfully"
-            ],
-            REST_Controller::HTTP_OK);
+      $data = $this->MDataUser->getUserByKTP($this->post('ktp'));
+      if($data->num_rows() == null){
+        unset($data);
+        $data = $this->MDataUser->inputKTP($id_user,$this->post('ktp'));
+        if(is_array($data) == false){
+          $this->response(
+              [
+                "status" => true,
+                "message" => "KTN SN inputed successfully"
+              ],
+              REST_Controller::HTTP_OK);
+        }else{
+          $this->response(
+              [
+                "status" => false,
+                "error" => $data['message']
+              ],
+              REST_Controller::HTTP_BAD_REQUEST);
+        }
       }else{
         $this->response(
-            [
-              "status" => false,
-              "error" => $data['message']
-            ],
-            REST_Controller::HTTP_BAD_REQUEST);
-      }
+              [
+                "status" => false,
+                "error" => "KTP telah terdaftar"
+              ],
+              REST_Controller::HTTP_BAD_REQUEST);
+      }      
     }
 
     public function kategoriPromo_get(){
@@ -562,6 +574,45 @@ class Collection extends REST_Controller {
       }
     }
 
+    public function finishTransaction_post(){
+      $ktp = $this->post('uid');
+      $id_spbu = $this->post('id_spbu');
+      $id_spbu_bbm = $this->post('id_spbu_bbm');
+      $total_pembelian = $this->post('real_usage_liter');
+      $total_pembayaran = $this->post('real_usage_rupiah');
+      $waktu_transaksi = date("Y-m-d h:i:sa");
+
+      $dataUser = $this->MDataUser->getUserByKTP($ktp);
+      foreach ($dataUser->result() as $value) {
+        $id_user = $value->id;
+      }
+      $this->MDataUser->updateStatusTransaksi($value->id,0);
+      unset($dataUser);
+      $data = $this->MSpbu->getPromoByIdSPBU($id_spbu);
+      if($data->num_rows() != null){
+        foreach ($data->result() as $value) {
+          $id_promo = $value->id;
+        }
+      }else{
+        $id_promo = NULL;
+      }
+      unset($data);
+      $data = array(
+        "id_user" => $id_user,
+        "id_spbu_bbm" => $id_spbu_bbm,
+        "id_promo" => $id_promo,
+        "waktu_transaksi" => $waktu_transaksi,
+        "total_pembelian" => $total_pembelian,
+        "total_pembayaran" => $total_pembayaran
+      );
+      $this->MTransaction->addTransaction($data);
+      $this->response(
+                [
+                  "status" => "OK"
+                ],
+                REST_Controller::HTTP_OK);
+    }
+
     public function requestBuy_post(){
       $data = $this->MDataUser->getUserByKTP($this->post('uid'));
       if($data->num_rows() != null){
@@ -583,6 +634,7 @@ class Collection extends REST_Controller {
                 REST_Controller::HTTP_OK);
           }
           if($this->post('free_mode') == 'TRUE'){
+            $this->MDataUser->updateStatusTransaksi($value->id,1);
             $this->response(
                 [
                   "status" => "OK",
@@ -591,6 +643,7 @@ class Collection extends REST_Controller {
                 REST_Controller::HTTP_OK);
           }else{
             if($this->post('request_value') <= $value->saldo){
+              $this->MDataUser->updateStatusTransaksi($value->id,1);
               $this->response(
                   [
                     "status" => "OK",
