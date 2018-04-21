@@ -192,13 +192,17 @@ class Collection extends REST_Controller {
           $id_user = $value->id;
         }
         $key = $this->MDataUser->getAPIKeyById($id_user);
-        $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
-        if($response['status'] == 0){
+        $this->MDataUser->renewKey($key);
+        //$response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
+        //$response['status'] == 0
+        $response = 0;
+        if($response == 0){
           $this->response(
             [
               "status" => true,
               "key" => $key,
-              'request_id' => $response['request_id']
+              'request_id' => "gurih"
+              //'request_id' => $response['request_id']
             ],
             REST_Controller::HTTP_OK);
         }else{
@@ -222,14 +226,18 @@ class Collection extends REST_Controller {
           );
         $id_user = $this->MDataUser->create_data($data);
         if(is_array($id_user) == false){
-          $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
+          //$response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
+        //$response['status'] == 0
+        $response = 0;
           $key_user = $this->MDataUser->getAPIKeyById($id_user);
-          if($response['status'] == 0){
+          $this->MDataUser->renewKey($key);
+          if($response == 0){
             $this->response(
             [
               "status" => true,
               "key" => $key_user,
-              'request_id' => $response['request_id']
+              'request_id' => "gurih"
+              //'request_id' => $response['request_id']
             ],
             REST_Controller::HTTP_OK);
           }else{
@@ -251,8 +259,10 @@ class Collection extends REST_Controller {
     }
 
     public function verifySmsCode_post(){
-      $response = $this->nexmo->verify_check($this->post('request_id'), $this->post('code'));
-      if($response['status'] == 0){
+      //$response = $this->nexmo->verify_check($this->post('request_id'), $this->post('code'));
+      $response = 0;
+      //$response['status'] == 0
+      if($response == 0){
         $this->checkExpiredKey();
         $id_user = $this->getIdFromKey();
         $dataUser = $this->MDataUser->getDataById($id_user);
@@ -411,7 +421,7 @@ class Collection extends REST_Controller {
 
     public function promoSPBU_post(){
       $this->checkExpiredKey();
-      if('null' != $this->post('id_kategori')){
+      if(null != $this->post('id_kategori')){
         $data = $this->MSpbu->getAllPromoAktifByIdKategori($this->post('id_kategori'));
       }else{
         $data = $this->MSpbu->getAllPromoAktif();
@@ -422,7 +432,7 @@ class Collection extends REST_Controller {
           $temp = array(
             'id_spbu' => $value->id_spbu,
             'no_spbu' => $value->no_spbu,
-            'nama_spbu' => $value->nama,
+            'nama_spbu' => $value->nama_spbu,
             'alamat_spbu' => $value->alamat,
             'kota_spbu' => $value->kota,
             'provinsi_spbu' => $value->provinsi,

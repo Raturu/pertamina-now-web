@@ -65,6 +65,11 @@
             <i class="fa fa-users"></i> <span>User</span>
           </a>
         </li>
+        <li class="<?php if($page_title == 'Data Transaction | Pertamina Now') { echo 'active'; } ?>">
+          <a href="<?php echo base_url('Transaction');?>">
+            <i class="fa fa-exchange"></i> <span>Transaction</span>
+          </a>
+        </li>
         <li class="<?php if($page_title == 'Data BBM | Pertamina Now' || $page_title == 'Data SPBU | Pertamina Now' || $page_title == 'Data SPBU BBM | Pertamina Now') { echo 'active'; } ?> treeview menu-open">
           <a href="#">
             <i class="fa fa-building"></i> <span>SPBU</span>

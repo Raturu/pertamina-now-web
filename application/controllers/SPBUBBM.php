@@ -56,11 +56,12 @@ class SPBUBBM extends Admin_Controller {
     if($res->num_rows() != null){
         foreach ($res->result() as $value) {
             $iterasi = 0;
+            $buttonEditBBM = '<button class="btn btn-primary btn-xs edit-bbm" data-id="'.$value->id.'"><i class="fa fa-pencil"></i></button>';
             if($value->status == 1){$status = '<button class="btn btn-success btn-xs active-data"style="height:20px;" status="'.$value->status.'" rel="'.$value->id.'" data-name="'.$value->nama_spbu." ".$value->nama_bbm.'">Active</button>';}else{$status = '<button class="btn btn-danger btn-xs active-data"style="height:20px;" status="'.$value->status.'" rel="'.$value->id.'" data-name="'.$value->nama_spbu." ".$value->nama_bbm.'">Inactive</button>';}
             $rec['aaData'][$k] = array(
                 $iterasi => 't|no||'.$i++,
                 $iterasi+=1 => 't|nama_spbu||'.$value->nama_spbu,
-                $iterasi+=1 => 't|nama_bbm||'.$value->nama_bbm,
+                $iterasi+=1 => 't|nama_bbm||'.$buttonEditBBM.' '.$value->nama_bbm,
                 $iterasi+=1 => 't|level|e|'.$value->level,
                 $iterasi+=1 => 't|max_tank|e|'.$value->max_tank,
                 $iterasi+=1 => 't|min_tank|e|'.$value->min_tank,
@@ -134,6 +135,53 @@ class SPBUBBM extends Admin_Controller {
     }else{ 
         echo $res;
     }
+  }
+
+  function editBBM(){
+    $id_spbu_bbm = $this->input->post('id_spbu_bbm');
+    $id_bbm = $this->input->post('id_bbm');
+    $this->MSpbubbm->editBBM($id_spbu_bbm,$id_bbm);
+    $this->session->set_flashdata('sukses',true);
+    $this->session->set_flashdata('pesanSukses','<h4><i class="fa fa-check"></i> Success !</h4><p>Edit BBM has been entered to the database successfully.</p>');
+    redirect('SPBUBBM','refresh');
+  }
+
+  function modelEditBBM(){
+    $data = $this->MSpbubbm->getSpbuById($_POST['id']);
+    foreach ($data->result() as $value) {
+        $id_spbu = $value->id_spbu;
+        
+    }
+    unset($data);
+    $data = $this->MSpbubbm->getBbmNotInSpbu($id_spbu);
+    $select = "<select class='form-control input-sm' name='id_bbm'>";
+    foreach ($data->result() as $value) {
+        $select .= "<option value='".$value->id."'>".$value->jenis."</option>";
+    }
+    $select .= "</select>";
+    echo "<div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span></button>
+            <h4 class='modal-title'>Edit BBM</h4>
+        </div>
+        <div class='modal-body'>
+          <form action='".base_url()."SPBUBBM/editBBM' method='POST' enctype='multipart/form-data'>
+          <input type='hidden' name='id_spbu_bbm' value='".$_POST['id']."'>
+              <div class='form-group'>
+                <label >BBM Name</label>
+                <p>
+                  ".$select."
+                </p>
+              </div>
+              
+              <button type='' class='btn btn-sm' data-dismiss='modal'>Close</button>
+              <button type='submit' class='btn btn-success btn-sm'>Save</button>
+            </div>
+          </form>
+        </div>
+
+        
+        ";
   }
   
 }

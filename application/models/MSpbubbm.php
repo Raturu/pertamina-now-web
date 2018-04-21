@@ -8,6 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $this->db->get('spbu');
 		}
 
+		public function getSpbuById($id_spbu_bbm){
+			$this->db->where('id', $id_spbu_bbm);
+			return $this->db->get('spbu_bbm');
+		}
+
 		public function getBbm(){
 			$this->db->where('status', 1);
 			return $this->db->get('bbm');
@@ -24,5 +29,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function change_status($id,$status){
 			$this->db->query("UPDATE spbu_bbm set status='$status' where id='$id'");
 		}
+
+		public function editBBM($id_spbu_bbm,$id_bbm){
+			$this->db->query("UPDATE spbu_bbm set id_bbm = '$id_bbm' where id = '$id_spbu_bbm' ");
+		}
+
 
 	}

@@ -101,10 +101,10 @@
     </div>
   </div>
 
-  <!-- Edit password -->
-  <div class="modal fade" tabindex="-1" role="dialog" id="editPassword">
+  <!-- Edit bbm -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="editBBM">
     <div class="modal-dialog">
-      <div class="modal-content" id="modelEditPassword">
+      <div class="modal-content" id="modelEditBBM">
         
       </div>
     </div>
