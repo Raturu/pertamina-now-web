@@ -194,16 +194,14 @@ class Collection extends REST_Controller {
         }
         $key = $this->MDataUser->getAPIKeyById($id_user);
         $this->MDataUser->renewKey($key);
-        //$response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
-        //$response['status'] == 0
-        $response = 0;
-        if($response == 0){
+        $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
+        
+        if($response['status'] == 0){
           $this->response(
             [
               "status" => true,
               "key" => $key,
-              'request_id' => "gurih"
-              //'request_id' => $response['request_id']
+              'request_id' => $response['request_id']
             ],
             REST_Controller::HTTP_OK);
         }else{
@@ -223,23 +221,21 @@ class Collection extends REST_Controller {
             'no_tlp' => $this->post('no_tlp'),
             'username' => null,
             'password' => null,
-            'rule' => 0
+            'rule' => 0,
+            'saldo' => 10000
           );
         $id_user = $this->MDataUser->create_data($data);
         $this->MDataUser->updateCRC32($id_user);
         if(is_array($id_user) == false){
-          //$response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
-        //$response['status'] == 0
-        $response = 0;
+          $response = $this->nexmo->verify_request($no_tlp, "Pertamina Now");
           $key_user = $this->MDataUser->getAPIKeyById($id_user);
           $this->MDataUser->renewKey($key_user);
-          if($response == 0){
+          if($response['status'] == 0){
             $this->response(
             [
               "status" => true,
               "key" => $key_user,
-              'request_id' => "gurih"
-              //'request_id' => $response['request_id']
+              'request_id' => $response['request_id']
             ],
             REST_Controller::HTTP_OK);
           }else{
@@ -261,10 +257,8 @@ class Collection extends REST_Controller {
     }
 
     public function verifySmsCode_post(){
-      //$response = $this->nexmo->verify_check($this->post('request_id'), $this->post('code'));
-      $response = 0;
-      //$response['status'] == 0
-      if($response == 0){
+      $response = $this->nexmo->verify_check($this->post('request_id'), $this->post('code'));
+      if($response['status'] == 0){
         $this->checkExpiredKey();
         $id_user = $this->getIdFromKey();
         $dataUser = $this->MDataUser->getDataById($id_user);
@@ -588,14 +582,20 @@ class Collection extends REST_Controller {
       }
       $this->MDataUser->updateStatusTransaksi($value->id,0);
       unset($dataUser);
-      $data = $this->MSpbu->getPromoByIdSPBU($id_spbu);
-      if($data->num_rows() != null){
-        foreach ($data->result() as $value) {
-          $id_promo = $value->id;
+      $cek = 0;
+        $data = $this->MSpbu->getPromoByIdSPBU($id_spbu);
+        if($data->num_rows() != null){
+          foreach ($data->result() as $value) {
+            $id_promo = $value->id;
+            $point = $value->poin;
+          }
+          $cek  =1;
+        }else{
+          $id_promo = NULL;
+          $point = 0;
         }
-      }else{
-        $id_promo = NULL;
-      }
+      
+      $this->MDataUser->setPoin($id_user,$point);
       unset($data);
       $data = array(
         "id_user" => $id_user,
@@ -605,11 +605,13 @@ class Collection extends REST_Controller {
         "total_pembelian" => $total_pembelian,
         "total_pembayaran" => $total_pembayaran
       );
+      $this->MDataUser->topUp($id_user,-$total_pembayaran);
       $this->MSpbu->minusLevel($id_spbu_bbm, $total_pembelian);
       $this->MTransaction->addTransaction($data);
       $this->response(
                 [
-                  "status" => "OK"
+                  "status" => "OK",
+                  "cek" => $cek
                 ],
                 REST_Controller::HTTP_OK);
     }

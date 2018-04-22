@@ -135,6 +135,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		public function setPoin($id_user, $poin){
+			$this->db->query("UPDATE user set poin = poin + '$poin' where id='$id_user'");
+		}
+
 		public function topUp($id_user,$amount){
 			$this->db->query("UPDATE user set saldo = saldo + '$amount' where id = '$id_user'");
 		}

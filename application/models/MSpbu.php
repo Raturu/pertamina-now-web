@@ -20,8 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function getNearSPBU($latitude, $longitude){
-			return $this->db->query("SELECT *, ( 3959 * acos( cos( radians('$latitude') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians('$longitude') ) + sin( radians('$latitude') ) * sin( radians( latitude ) ) ) ) AS distance FROM spbu WHERE spbu.status=1 ORDER BY distance desc LIMIT 0 , 20;");
-			// menggunakan desc brarti diurutkan paling jauh, dikarenakan array_push jadinya terbalik.
+			return $this->db->query("SELECT *, ( 3959 * acos( cos( radians('$latitude') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians('$longitude') ) + sin( radians('$latitude') ) * sin( radians( latitude ) ) ) ) AS distance FROM spbu WHERE spbu.status=1 ORDER BY distance asc LIMIT 0 , 20;");
 		}
 
 		public function getListBBMByIdSPBU($id_spbu){
