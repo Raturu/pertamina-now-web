@@ -605,6 +605,7 @@ class Collection extends REST_Controller {
         "total_pembelian" => $total_pembelian,
         "total_pembayaran" => $total_pembayaran
       );
+      $this->MSpbu->minusLevel($id_spbu_bbm, $total_pembelian);
       $this->MTransaction->addTransaction($data);
       $this->response(
                 [

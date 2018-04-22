@@ -39,4 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function getPromoByIdSPBU($id_spbu){
 			return $this->db->query("SELECT * from promo where id_spbu = '$id_spbu' and status =1 and waktu_mulai <= now() and now() <= waktu_selesai");
 		}
+
+		public function minusLevel($id_spbu_bbm, $total_pembelian){
+			return $this->db->query("UPDATE spbu_bbm set level = level - '$total_pembelian' where id='$id_spbu_bbm'");
+		}
 	}

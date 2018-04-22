@@ -13,6 +13,7 @@ class Dashboard extends Admin_Controller {
   
   public function index() {
     $this->data['current_page'] = $this->uri->uri_string();
+    $this->data['bbmBuyed'] = $this->MDashboard->bbmBuyed();
     $this->content = 'admin/dashboard';     
     $this->navigation = 'template_admin/_parts/navigation/admin_view'; 
     // passing middle to function. change this for different views.

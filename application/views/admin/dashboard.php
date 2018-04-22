@@ -10,7 +10,7 @@
       </div>
       <div class="col-md-6">
         <div class="box box-primary">
-          <div id="finishyear" style="height: 300px; width: 100%;"></div>
+          <div id="percentageBbmBuyed" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
     </div>
@@ -65,5 +65,27 @@
 		updateChart(dataLength);
 		setInterval(function(){updateChart()}, updateInterval);
 
+
+		var chartPercentageBbmBuyed = new CanvasJS.Chart("percentageBbmBuyed", {
+			animationEnabled: true,
+			title: {
+				text: "BBM"
+			},
+			data: [{
+				type: "pie",
+				startAngle: 25,
+				toolTipContent: "<b>{label}</b>: {y}%",
+				showInLegend: "true",
+				legendText: "{label}",
+				indexLabelFontSize: 16,
+				indexLabel: "{label} - {y}%",
+				dataPoints: [
+					<?php foreach ($bbmBuyed->result() as $value) { ?>
+						{ y: <?php echo $value->count; ?>, label: <?php echo '"'.$value->jenis.'"'; ?> },
+					<?php } ?>
+				]
+			}]
+		});
+		chartPercentageBbmBuyed.render();
 	}
 </script>
